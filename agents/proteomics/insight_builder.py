@@ -1,4 +1,5 @@
 import json
+from typing import Dict, Any
 from ..common.base import BaseAgent
 
 class ProteomicsInsightBuilderAgent(BaseAgent):
@@ -6,66 +7,69 @@ class ProteomicsInsightBuilderAgent(BaseAgent):
         report = context.get("report", {})
         user_id = context.get("user_id", "Unknown")
         
-        # Extract proteomics-specific data
-        protein_expression = report.get("protein_expression", {})
+        # Extract proteomics-specific data for context
+        protein_data = report.get("protein_data", {})
         biomarker_levels = report.get("biomarker_levels", {})
-        protein_pathways = report.get("protein_pathways", {})
-        post_translational_modifications = report.get("ptm", {})
-        protein_interactions = report.get("protein_interactions", {})
-        disease_associations = report.get("disease_associations", {})
+        pathway_analysis = report.get("pathway_analysis", {})
+        health_implications = report.get("health_implications", {})
         
         prompt = (
 f"""
-You are a proteomics specialist analyzing protein expression data for user {user_id}.
+You are a proteomics specialist analyzing data for user {user_id}.
 
-PROTEOMICS REPORT DATA:
-Protein Expression Levels: {protein_expression}
-Biomarker Levels: {biomarker_levels}
-Protein Pathways: {protein_pathways}
-Post-Translational Modifications: {post_translational_modifications}
-Protein Interactions: {protein_interactions}
-Disease Associations: {disease_associations}
+PROTEIN DATA:
+{json.dumps(protein_data, indent=2)}
 
-Generate a comprehensive proteomics analysis including:
+BIOMARKER LEVELS:
+{json.dumps(biomarker_levels, indent=2)}
+
+PATHWAY ANALYSIS:
+{json.dumps(pathway_analysis, indent=2)}
+
+HEALTH IMPLICATIONS:
+{json.dumps(health_implications, indent=2)}
+
+USER QUESTION: {user_query}
+
+Provide comprehensive proteomics insights including:
 
 1. PROTEIN EXPRESSION ANALYSIS:
-   - Key proteins and their expression levels
-   - Upregulated vs downregulated proteins
-   - Biological significance of expression changes
+   - Overall protein expression patterns
+   - Key protein biomarkers
+   - Expression level variations
+   - Tissue-specific patterns
 
-2. BIOMARKER INTERPRETATION:
+2. BIOMARKER ASSESSMENT:
    - Clinical biomarker levels
-   - Disease risk indicators
-   - Health status markers
+   - Disease-associated proteins
+   - Health status indicators
+   - Risk factor proteins
 
 3. PATHWAY ANALYSIS:
-   - Affected biological pathways
-   - Metabolic implications
-   - Cellular process disruptions
-
-4. POST-TRANSLATIONAL MODIFICATIONS:
-   - Protein modifications and their significance
+   - Metabolic pathway activity
+   - Signaling pathway status
+   - Protein interaction networks
    - Functional implications
-   - Regulatory effects
 
-5. PROTEIN INTERACTION NETWORKS:
-   - Protein-protein interactions
-   - Complex formation
-   - Network perturbations
+4. HEALTH IMPLICATIONS:
+   - Disease risk assessment
+   - Metabolic health indicators
+   - Inflammation markers
+   - Organ function status
 
-6. DISEASE ASSOCIATIONS:
-   - Disease-related protein changes
-   - Risk assessment
-   - Prognostic implications
+5. LIFESTYLE FACTORS:
+   - How diet affects protein expression
+   - Exercise and protein patterns
+   - Stress impact on biomarkers
+   - Environmental influences
 
-7. CLINICAL RELEVANCE:
-   - Diagnostic potential
-   - Therapeutic targets
+6. ACTIONABLE INSIGHTS:
+   - Specific protein targets
+   - Intervention opportunities
    - Monitoring recommendations
+   - Prevention strategies
 
-8. End with a single-sentence summary in **bold**.
-
-Focus on actionable insights and explain what the proteomics data means for the user's health and potential interventions.
+Provide evidence-based insights that explain protein expression patterns in the context of overall health and wellness.
 """
         )
-        return self.llm.generate(prompt, max_tokens=600) 
+        return self.generate(prompt, max_tokens=600) 

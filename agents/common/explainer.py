@@ -48,4 +48,4 @@ Provide a clear, comprehensive explanation including:
 Use simple language and avoid jargon. Make it accessible to someone without a scientific background.
 """
         )
-        return self.llm.generate(prompt, max_tokens=400) 
+        return self.generate(prompt, max_tokens=400) 

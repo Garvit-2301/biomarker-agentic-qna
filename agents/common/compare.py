@@ -5,19 +5,19 @@ class CompareAgent(BaseAgent):
     def run(self, user_query: str, context: Dict[str, Any]) -> str:
         report = context.get("report", {})
         baseline = context.get("baseline", {})
-        domain = context.get("domain", "general")
         user_id = context.get("user_id", "Unknown")
+        domain = context.get("domain", "general")
         
         domain_contexts = {
-            "methylation": "methylation patterns, epigenetic age, CpG sites",
-            "metagenomics": "microbiome composition, diversity scores, functional markers",
-            "whole_exome": "genetic variants, disease risks, pharmacogenomics",
-            "proteomics": "protein expression, biomarker levels, pathway analysis",
-            "transcriptomics": "gene expression, differentially expressed genes, regulatory networks",
-            "whole_genome": "genomic variants, ancestry, complex traits"
+            "methylation": "DNA methylation patterns, epigenetic age, CpG site analysis",
+            "metagenomics": "gut microbiome composition, diversity metrics, bacterial abundance",
+            "whole_exome": "genetic variants, carrier status, pharmacogenomics",
+            "proteomics": "protein expression levels, biomarker concentrations",
+            "transcriptomics": "gene expression levels, RNA abundance, regulatory networks",
+            "whole_genome": "genome-wide associations, structural variants, ancestry"
         }
         
-        domain_context = domain_contexts.get(domain, "biomarker data")
+        domain_context = domain_contexts.get(domain, "biomarker analysis")
         
         prompt = (
 f"""
@@ -66,4 +66,4 @@ Provide a comprehensive comparison including:
 Use specific numbers and explain what they mean for the user's health in the context of {domain}.
 """
         )
-        return self.llm.generate(prompt, max_tokens=500) 
+        return self.generate(prompt, max_tokens=500) 

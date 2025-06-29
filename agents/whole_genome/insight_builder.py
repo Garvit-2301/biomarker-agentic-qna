@@ -1,4 +1,5 @@
 import json
+from typing import Dict, Any
 from ..common.base import BaseAgent
 
 class WholeGenomeInsightBuilderAgent(BaseAgent):
@@ -6,66 +7,73 @@ class WholeGenomeInsightBuilderAgent(BaseAgent):
         report = context.get("report", {})
         user_id = context.get("user_id", "Unknown")
         
-        # Extract whole genome-specific data
-        snp_variants = report.get("snp_variants", {})
+        # Extract whole genome-specific data for context
+        genome_data = report.get("genome_data", {})
+        snps = report.get("snps", {})
         structural_variants = report.get("structural_variants", {})
-        copy_number_variants = report.get("cnv", {})
-        genome_wide_associations = report.get("gwas", {})
-        ancestry_analysis = report.get("ancestry", {})
-        complex_traits = report.get("complex_traits", {})
+        ancestry = report.get("ancestry", {})
+        health_implications = report.get("health_implications", {})
         
         prompt = (
 f"""
-You are a whole genome sequencing specialist analyzing complete genomic data for user {user_id}.
+You are a whole genome sequencing specialist analyzing data for user {user_id}.
 
-WHOLE GENOME REPORT DATA:
-SNP Variants: {snp_variants}
-Structural Variants: {structural_variants}
-Copy Number Variants: {copy_number_variants}
-Genome-Wide Associations: {genome_wide_associations}
-Ancestry Analysis: {ancestry_analysis}
-Complex Traits: {complex_traits}
+GENOME DATA:
+{json.dumps(genome_data, indent=2)}
 
-Generate a comprehensive whole genome analysis including:
+SNPS:
+{json.dumps(snps, indent=2)}
 
-1. GENETIC VARIANT ANALYSIS:
-   - SNP interpretation and significance
-   - Structural variant implications
-   - Copy number variant effects
+STRUCTURAL VARIANTS:
+{json.dumps(structural_variants, indent=2)}
 
-2. GENOME-WIDE ASSOCIATION STUDIES:
-   - Disease risk associations
-   - Trait associations
-   - Population-specific findings
+ANCESTRY:
+{json.dumps(ancestry, indent=2)}
 
-3. ANCESTRY AND POPULATION GENETICS:
+HEALTH IMPLICATIONS:
+{json.dumps(health_implications, indent=2)}
+
+USER QUESTION: {user_query}
+
+Provide comprehensive whole genome insights including:
+
+1. GENOME-WIDE ANALYSIS:
+   - Overall genome characteristics
+   - Key genetic variations identified
+   - Coverage and quality assessment
+   - Novel variant discovery
+
+2. SNP ANALYSIS:
+   - Common variant associations
+   - Complex trait predispositions
+   - Population-specific variants
+   - Polygenic risk scores
+
+3. STRUCTURAL VARIANT ASSESSMENT:
+   - Copy number variations
+   - Insertions and deletions
+   - Inversions and translocations
+   - Clinical significance
+
+4. ANCESTRY AND POPULATION GENETICS:
    - Genetic ancestry composition
    - Population-specific risks
-   - Evolutionary implications
+   - Geographic origins
+   - Genetic diversity assessment
 
-4. COMPLEX TRAIT ANALYSIS:
-   - Polygenic risk scores
-   - Complex disease predispositions
-   - Trait predictions
-
-5. STRUCTURAL GENOMIC VARIATIONS:
-   - Large-scale genomic changes
-   - Chromosomal abnormalities
-   - Functional implications
-
-6. CLINICAL INTERPRETATION:
+5. HEALTH IMPLICATIONS:
    - Disease risk assessment
-   - Pharmacogenomic implications
-   - Personalized medicine opportunities
+   - Complex trait associations
+   - Pharmacogenomic insights
+   - Preventive health opportunities
 
-7. FAMILY AND REPRODUCTIVE IMPLICATIONS:
-   - Inheritance patterns
-   - Family planning considerations
-   - Genetic counseling recommendations
+6. ACTIONABLE INSIGHTS:
+   - Specific genetic targets
+   - Intervention opportunities
+   - Screening recommendations
+   - Prevention strategies
 
-8. End with a single-sentence summary in **bold**.
-
-Focus on actionable insights and explain what the whole genome data means for the user's health, ancestry, and personalized medicine opportunities.
+Provide evidence-based insights that explain genome-wide patterns in the context of overall health and wellness.
 """
         )
-        return self.llm.generate(prompt, max_tokens=600) 
+        return self.generate(prompt, max_tokens=600) 

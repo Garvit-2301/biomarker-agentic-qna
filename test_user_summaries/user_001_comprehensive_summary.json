@@ -1,0 +1,324 @@
+{
+  "user_id": "user_001",
+  "generated_at": "2025-06-30T03:37:55.234381",
+  "domains": {
+    "general": {
+      "error": "No data available for general"
+    },
+    "methylation": {
+      "summary": "**Executive Summary for user_001**\n\n**Key Findings**:\ncomprehensive analysis reveals normal patterns\n\n**Risk Assessment**:\nlow to moderate risk profile\n\n**Priority Actions**:\nmaintain current lifestyle, monitor trends\n\n**Next Steps**:\nfollow-up in 6 months recommended",
+      "data_snapshot": {
+        "user_id": "user_001",
+        "report_date": "2024-01-15",
+        "domain": "methylation",
+        "methylation_score": 0.72,
+        "cpg_sites": {
+          "total_analyzed": 850000,
+          "methylated_sites": 612000,
+          "unmethylated_sites": 238000,
+          "key_regions": {
+            "promoter_regions": 0.68,
+            "gene_bodies": 0.75,
+            "enhancer_regions": 0.71,
+            "cpg_islands": 0.69
+          }
+        },
+        "epigenetic_age": {
+          "chronological_age": 35,
+          "biological_age": 42,
+          "age_acceleration": 7,
+          "age_percentile": 85
+        },
+        "methylation_patterns": {
+          "tissue_specific": {
+            "blood": 0.72,
+            "buccal": 0.68,
+            "saliva": 0.7
+          },
+          "disease_associated": {
+            "cancer_risk": "moderate",
+            "cardiovascular_risk": "high",
+            "diabetes_risk": "moderate"
+          }
+        },
+        "health_implications": {
+          "inflammation_markers": {
+            "il6_methylation": 0.65,
+            "tnf_alpha_methylation": 0.58,
+            "crp_methylation": 0.72
+          },
+          "metabolic_markers": {
+            "insulin_methylation": 0.68,
+            "leptin_methylation": 0.71,
+            "adiponectin_methylation": 0.64
+          },
+          "stress_response": {
+            "cortisol_methylation": 0.69,
+            "bdnf_methylation": 0.62,
+            "nr3c1_methylation": 0.75
+          }
+        }
+      },
+      "generated_at": "2025-06-30T03:37:55.428645"
+    },
+    "whole_exome": {
+      "summary": "**Executive Summary for user_001**\n\n**Key Findings**:\ncomprehensive analysis reveals normal patterns\n\n**Risk Assessment**:\nlow to moderate risk profile\n\n**Priority Actions**:\nmaintain current lifestyle, monitor trends\n\n**Next Steps**:\nfollow-up in 6 months recommended",
+      "data_snapshot": {
+        "user_id": "user_001",
+        "report_date": "2024-01-15",
+        "domain": "whole_exome",
+        "variant_count": 12500,
+        "pathogenic_variants": [
+          {
+            "gene": "BRCA2",
+            "variant": "c.5946delT",
+            "chromosome": "13",
+            "position": 32316467,
+            "consequence": "frameshift",
+            "pathogenicity": "pathogenic",
+            "disease_association": "breast_cancer",
+            "inheritance": "autosomal_dominant"
+          }
+        ],
+        "vus_variants": [
+          {
+            "gene": "APC",
+            "variant": "c.3920T>A",
+            "chromosome": "5",
+            "position": 112175196,
+            "consequence": "missense",
+            "pathogenicity": "uncertain",
+            "disease_association": "colorectal_cancer",
+            "inheritance": "autosomal_dominant"
+          }
+        ],
+        "gene_annotations": {
+          "total_genes": 20000,
+          "disease_genes": 150,
+          "pharmacogenomic_genes": 25,
+          "key_pathways": {
+            "dna_repair": [
+              "BRCA1",
+              "BRCA2",
+              "ATM",
+              "CHEK2"
+            ],
+            "metabolism": [
+              "MTHFR",
+              "COMT",
+              "CYP2D6",
+              "CYP2C19"
+            ],
+            "immune_response": [
+              "HLA-A",
+              "HLA-B",
+              "HLA-C",
+              "IL6"
+            ]
+          }
+        },
+        "disease_risk": {
+          "monogenic_diseases": {
+            "breast_cancer": "high",
+            "colorectal_cancer": "moderate",
+            "cardiovascular_disease": "moderate"
+          },
+          "complex_diseases": {
+            "diabetes_type_2": "moderate",
+            "hypertension": "high",
+            "alzheimer_disease": "low"
+          }
+        },
+        "pharmacogenomics": {
+          "drug_metabolism": {
+            "warfarin": "sensitive",
+            "clopidogrel": "intermediate",
+            "simvastatin": "normal",
+            "metformin": "normal"
+          },
+          "drug_response": {
+            "codeine": "ultra_rapid_metabolizer",
+            "tamoxifen": "normal",
+            "carbamazepine": "normal"
+          }
+        }
+      },
+      "generated_at": "2025-06-30T03:37:55.892268"
+    },
+    "proteomics": {
+      "summary": "**Executive Summary for user_001**\n\n**Key Findings**:\ncomprehensive analysis reveals normal patterns\n\n**Risk Assessment**:\nlow to moderate risk profile\n\n**Priority Actions**:\nmaintain current lifestyle, monitor trends\n\n**Next Steps**:\nfollow-up in 6 months recommended",
+      "data_snapshot": {
+        "user_id": "user_001",
+        "report_date": "2024-01-15",
+        "domain": "proteomics",
+        "protein_expression": {
+          "total_proteins_detected": 2500,
+          "upregulated_proteins": 180,
+          "downregulated_proteins": 95,
+          "key_proteins": {
+            "insulin": {
+              "expression": 1.8,
+              "status": "upregulated"
+            },
+            "leptin": {
+              "expression": 2.1,
+              "status": "upregulated"
+            },
+            "adiponectin": {
+              "expression": 0.6,
+              "status": "downregulated"
+            },
+            "c_reactive_protein": {
+              "expression": 2.5,
+              "status": "upregulated"
+            },
+            "interleukin_6": {
+              "expression": 1.9,
+              "status": "upregulated"
+            }
+          }
+        },
+        "biomarker_levels": {
+          "inflammatory_markers": {
+            "crp": 4.2,
+            "il6": 3.8,
+            "tnf_alpha": 2.1,
+            "ferritin": 180
+          },
+          "metabolic_markers": {
+            "insulin": 15.2,
+            "leptin": 25.6,
+            "adiponectin": 8.4,
+            "ghrelin": 12.8
+          },
+          "cardiovascular_markers": {
+            "troponin": 0.02,
+            "bnp": 45,
+            "myoglobin": 85
+          }
+        },
+        "protein_pathways": {
+          "inflammation_pathway": {
+            "status": "activated",
+            "key_proteins": [
+              "IL6",
+              "TNF",
+              "CRP",
+              "IL1B"
+            ],
+            "pathway_score": 2.1
+          },
+          "insulin_signaling": {
+            "status": "dysregulated",
+            "key_proteins": [
+              "INSR",
+              "IRS1",
+              "AKT",
+              "GLUT4"
+            ],
+            "pathway_score": 0.7
+          },
+          "lipid_metabolism": {
+            "status": "normal",
+            "key_proteins": [
+              "LDLR",
+              "APOB",
+              "APOA1",
+              "CETP"
+            ],
+            "pathway_score": 1.1
+          }
+        },
+        "ptm": {
+          "phosphorylation": {
+            "total_phosphorylated": 450,
+            "key_sites": {
+              "AKT_S473": "phosphorylated",
+              "ERK_T202": "phosphorylated",
+              "JNK_T183": "phosphorylated"
+            }
+          },
+          "glycosylation": {
+            "total_glycosylated": 320,
+            "key_sites": {
+              "IGF1R": "glycosylated",
+              "EGFR": "glycosylated"
+            }
+          }
+        },
+        "protein_interactions": {
+          "insulin_receptor_complex": [
+            "INSR",
+            "IRS1",
+            "PI3K",
+            "AKT"
+          ],
+          "inflammation_complex": [
+            "IL6",
+            "IL6R",
+            "JAK2",
+            "STAT3"
+          ],
+          "metabolic_complex": [
+            "PPAR",
+            "RXR",
+            "PGC1A"
+          ]
+        },
+        "disease_associations": {
+          "diabetes": {
+            "risk_score": 0.75,
+            "key_proteins": [
+              "insulin",
+              "leptin",
+              "adiponectin"
+            ],
+            "pathway_perturbation": "high"
+          },
+          "cardiovascular_disease": {
+            "risk_score": 0.68,
+            "key_proteins": [
+              "crp",
+              "il6",
+              "troponin"
+            ],
+            "pathway_perturbation": "moderate"
+          },
+          "inflammation": {
+            "risk_score": 0.82,
+            "key_proteins": [
+              "crp",
+              "il6",
+              "tnf_alpha"
+            ],
+            "pathway_perturbation": "high"
+          }
+        }
+      },
+      "generated_at": "2025-06-30T03:37:56.062195"
+    }
+  },
+  "overall_health_assessment": {
+    "assessment": "Mock response for analysis agent in overall domain.",
+    "generated_at": "2025-06-30T03:37:56.616802"
+  },
+  "cross_domain_insights": {
+    "insights": "Mock response for analysis agent in cross_domain domain.",
+    "generated_at": "2025-06-30T03:37:56.302624"
+  },
+  "recommendations": {
+    "recommendations": "**Personalized Recommendations for user_001**\n\n**Lifestyle Changes**:\nregular exercise and stress management\n\n**Dietary Recommendations**:\nbalanced diet with increased fiber\n\n**Supplementation**:\nvitamin D and omega-3 fatty acids\n\n**Monitoring**:\nquarterly biomarker tracking\n\n**Follow-up**:\nschedule follow-up consultation",
+    "generated_at": "2025-06-30T03:37:56.977101"
+  },
+  "metadata": {
+    "total_domains": 4,
+    "domains_processed": [
+      "general",
+      "methylation",
+      "whole_exome",
+      "proteomics"
+    ],
+    "processing_time": "2025-06-30T03:37:56.977110",
+    "version": "1.0"
+  }
+}

@@ -1,4 +1,5 @@
 import json
+from typing import Dict, Any
 from ..common.base import BaseAgent
 
 class TranscriptomicsInsightBuilderAgent(BaseAgent):
@@ -6,66 +7,69 @@ class TranscriptomicsInsightBuilderAgent(BaseAgent):
         report = context.get("report", {})
         user_id = context.get("user_id", "Unknown")
         
-        # Extract transcriptomics-specific data
-        gene_expression = report.get("gene_expression", {})
-        differentially_expressed_genes = report.get("deg", {})
-        pathway_enrichment = report.get("pathway_enrichment", {})
-        transcription_factors = report.get("transcription_factors", {})
-        rna_biomarkers = report.get("rna_biomarkers", {})
-        regulatory_networks = report.get("regulatory_networks", {})
+        # Extract transcriptomics-specific data for context
+        gene_expression_data = report.get("gene_expression_data", {})
+        differentially_expressed_genes = report.get("differentially_expressed_genes", {})
+        pathway_analysis = report.get("pathway_analysis", {})
+        health_implications = report.get("health_implications", {})
         
         prompt = (
 f"""
-You are a transcriptomics specialist analyzing gene expression data for user {user_id}.
+You are a transcriptomics specialist analyzing data for user {user_id}.
 
-TRANSCRIPTOMICS REPORT DATA:
-Gene Expression Levels: {gene_expression}
-Differentially Expressed Genes: {differentially_expressed_genes}
-Pathway Enrichment: {pathway_enrichment}
-Transcription Factors: {transcription_factors}
-RNA Biomarkers: {rna_biomarkers}
-Regulatory Networks: {regulatory_networks}
+GENE EXPRESSION DATA:
+{json.dumps(gene_expression_data, indent=2)}
 
-Generate a comprehensive transcriptomics analysis including:
+DIFFERENTIALLY EXPRESSED GENES:
+{json.dumps(differentially_expressed_genes, indent=2)}
+
+PATHWAY ANALYSIS:
+{json.dumps(pathway_analysis, indent=2)}
+
+HEALTH IMPLICATIONS:
+{json.dumps(health_implications, indent=2)}
+
+USER QUESTION: {user_query}
+
+Provide comprehensive transcriptomics insights including:
 
 1. GENE EXPRESSION ANALYSIS:
-   - Key genes and their expression patterns
+   - Overall gene expression patterns
+   - Key differentially expressed genes
+   - Expression level variations
+   - Tissue-specific patterns
+
+2. DIFFERENTIAL EXPRESSION ASSESSMENT:
    - Upregulated vs downregulated genes
-   - Biological significance of expression changes
-
-2. DIFFERENTIALLY EXPRESSED GENES:
-   - Most significant gene changes
+   - Statistical significance of changes
+   - Biological relevance of changes
    - Functional implications
-   - Disease associations
 
-3. PATHWAY ENRICHMENT:
+3. PATHWAY ANALYSIS:
    - Affected biological pathways
-   - Metabolic pathway disruptions
-   - Cellular process implications
+   - Metabolic pathway activity
+   - Signaling pathway status
+   - Regulatory network changes
 
-4. TRANSCRIPTION FACTOR ANALYSIS:
-   - Key transcription factors
-   - Regulatory mechanisms
-   - Gene regulation networks
+4. HEALTH IMPLICATIONS:
+   - Disease risk assessment
+   - Metabolic health indicators
+   - Inflammation markers
+   - Organ function status
 
-5. RNA BIOMARKERS:
-   - Diagnostic RNA markers
-   - Prognostic indicators
-   - Therapeutic targets
+5. LIFESTYLE FACTORS:
+   - How diet affects gene expression
+   - Exercise and gene patterns
+   - Stress impact on transcription
+   - Environmental influences
 
-6. REGULATORY NETWORKS:
-   - Gene regulatory networks
-   - Network perturbations
-   - Functional consequences
+6. ACTIONABLE INSIGHTS:
+   - Specific gene targets
+   - Intervention opportunities
+   - Monitoring recommendations
+   - Prevention strategies
 
-7. CLINICAL IMPLICATIONS:
-   - Disease mechanisms
-   - Therapeutic opportunities
-   - Monitoring strategies
-
-8. End with a single-sentence summary in **bold**.
-
-Focus on actionable insights and explain what the transcriptomics data means for the user's health and potential interventions.
+Provide evidence-based insights that explain gene expression patterns in the context of overall health and wellness.
 """
         )
-        return self.llm.generate(prompt, max_tokens=600) 
+        return self.generate(prompt, max_tokens=600) 

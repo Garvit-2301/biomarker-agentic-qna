@@ -1,4 +1,5 @@
 import json
+from typing import Dict, Any
 from ..common.base import BaseAgent
 
 class WholeExomeInsightBuilderAgent(BaseAgent):
@@ -6,61 +7,69 @@ class WholeExomeInsightBuilderAgent(BaseAgent):
         report = context.get("report", {})
         user_id = context.get("user_id", "Unknown")
         
-        # Extract whole exome-specific data
-        variant_count = report.get("variant_count", 0)
-        pathogenic_variants = report.get("pathogenic_variants", [])
-        vus_variants = report.get("vus_variants", [])  # Variants of Uncertain Significance
-        gene_annotations = report.get("gene_annotations", {})
-        disease_risk = report.get("disease_risk", {})
+        # Extract whole exome-specific data for context
+        variants_data = report.get("variants_data", {})
+        carrier_status = report.get("carrier_status", {})
         pharmacogenomics = report.get("pharmacogenomics", {})
+        health_implications = report.get("health_implications", {})
         
         prompt = (
 f"""
-You are a whole exome sequencing specialist analyzing genetic data for user {user_id}.
+You are a whole exome sequencing specialist analyzing data for user {user_id}.
 
-WHOLE EXOME REPORT DATA:
-Total Variants: {variant_count}
-Pathogenic Variants: {pathogenic_variants}
-Variants of Uncertain Significance (VUS): {vus_variants}
-Gene Annotations: {gene_annotations}
-Disease Risk Assessment: {disease_risk}
-Pharmacogenomics: {pharmacogenomics}
+VARIANTS DATA:
+{json.dumps(variants_data, indent=2)}
 
-Generate a comprehensive whole exome analysis including:
+CARRIER STATUS:
+{json.dumps(carrier_status, indent=2)}
 
-1. VARIANT INTERPRETATION:
-   - Pathogenic variant analysis and implications
-   - VUS interpretation and monitoring recommendations
-   - Clinical significance of findings
+PHARMACOGENOMICS:
+{json.dumps(pharmacogenomics, indent=2)}
 
-2. GENE FUNCTION ANALYSIS:
-   - Key genes and their biological functions
-   - Pathway implications
-   - Protein function impact
+HEALTH IMPLICATIONS:
+{json.dumps(health_implications, indent=2)}
 
-3. DISEASE RISK ASSESSMENT:
-   - Monogenic disease risks
-   - Complex disease predispositions
-   - Carrier status implications
+USER QUESTION: {user_query}
 
-4. PHARMACOGENOMICS:
+Provide comprehensive whole exome insights including:
+
+1. GENETIC VARIANT ANALYSIS:
+   - Overall variant burden
+   - Key genetic variants identified
+   - Variant classification and significance
+   - Population frequency comparisons
+
+2. CARRIER STATUS ASSESSMENT:
+   - Recessive disease carrier status
+   - Family planning implications
+   - Risk assessment for offspring
+   - Genetic counseling considerations
+
+3. PHARMACOGENOMICS:
    - Drug metabolism variants
    - Medication response predictions
-   - Personalized medicine implications
+   - Personalized dosing recommendations
+   - Adverse drug reaction risks
 
-5. FAMILY IMPLICATIONS:
-   - Inheritance patterns
-   - Family member testing recommendations
-   - Reproductive planning considerations
+4. HEALTH IMPLICATIONS:
+   - Disease risk assessment
+   - Monogenic disorder risks
+   - Complex trait associations
+   - Preventive health opportunities
 
-6. CLINICAL RECOMMENDATIONS:
-   - Follow-up testing suggestions
-   - Specialist referrals
-   - Monitoring protocols
+5. CLINICAL RELEVANCE:
+   - Actionable genetic findings
+   - Screening recommendations
+   - Specialist referrals if needed
+   - Monitoring strategies
 
-7. End with a single-sentence summary in **bold**.
+6. ACTIONABLE INSIGHTS:
+   - Specific genetic targets
+   - Intervention opportunities
+   - Family screening recommendations
+   - Prevention strategies
 
-Focus on actionable insights and explain what the genetic data means for the user's health and medical care.
+Provide evidence-based insights that explain genetic variants in the context of overall health and wellness.
 """
         )
-        return self.llm.generate(prompt, max_tokens=600) 
+        return self.generate(prompt, max_tokens=600) 

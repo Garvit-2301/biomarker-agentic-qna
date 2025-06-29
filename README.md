@@ -2,7 +2,7 @@
 
 A comprehensive offline testing framework for multi-domain biomarker analysis using agentic workflows. This system provides mock LLM clients and demo agents to test the complete workflow without making actual API calls.
 
-## 🚀 Features
+## Features
 
 - **Multi-Domain Support**: Methylation, Metagenomics, Proteomics, Transcriptomics, Whole Exome, and Whole Genome analysis
 - **Agentic Workflow**: Analysis, Summary, and Recommendation agents for each domain
@@ -11,7 +11,7 @@ A comprehensive offline testing framework for multi-domain biomarker analysis us
 - **Test Data**: Realistic test data for all domains
 - **Prompt Management**: Centralized prompt management system
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 biomarker-agentic-qna/
@@ -41,7 +41,7 @@ biomarker-agentic-qna/
 └── README.md                       # This file
 ```
 
-## 🛠️ Installation
+## Installation
 
 1. **Clone the repository**:
    ```bash
@@ -63,7 +63,7 @@ biomarker-agentic-qna/
    python3 test_agentic_workflow.py
    ```
 
-## 🧪 Testing
+## Testing
 
 ### Quick Test
 Run a simple test to verify the system works:
@@ -85,7 +85,7 @@ After running tests, check the results in:
   - `test_report.json`: Machine-readable test results
   - Domain-specific logs: `testing_logs/<domain>/<agent>_agent.log`
 
-## 🔧 Components
+## Components
 
 ### Mock LLM Client
 - **File**: `utils/mock_llm_client.py`
@@ -102,7 +102,7 @@ After running tests, check the results in:
 - **Purpose**: Manages prompts for all domains and agents
 - **Features**: Dynamic prompt loading, template formatting
 
-## 📊 Supported Domains
+## Supported Domains
 
 | Domain | Description | Agents |
 |--------|-------------|--------|
@@ -113,7 +113,7 @@ After running tests, check the results in:
 | **Whole Exome** | Whole exome sequencing analysis | Analysis, Summary, Recommendation |
 | **Whole Genome** | Whole genome analysis | Analysis, Summary, Recommendation |
 
-## 🔍 Understanding the Logs
+## Understanding the Logs
 
 ### Log Structure
 Each domain has its own log directory with agent-specific logs:
@@ -139,7 +139,7 @@ testing_logs/
 - **Response Lengths**: Size of generated responses
 - **Error Details**: Specific error messages and causes
 
-## 🚀 Usage Examples
+## Usage Examples
 
 ### Running a Single Agent Test
 ```python
@@ -161,7 +161,7 @@ for domain in domains:
     print(f"{domain}: {'✓' if result['success'] else '✗'}")
 ```
 
-## 🔧 Customization
+## Customization
 
 ### Adding New Domains
 1. Create domain directory in `agents/`
@@ -175,7 +175,7 @@ Edit files in `user_data/<domain>/<user_id>_report.txt` to customize test scenar
 ### Customizing Mock Responses
 Modify `utils/mock_llm_client.py` to change response templates and behavior.
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 The system tracks:
 - **Processing Time**: Time taken for each agent
@@ -183,7 +183,7 @@ The system tracks:
 - **Response Quality**: Length and content of responses
 - **Error Analysis**: Detailed error tracking and categorization
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -191,11 +191,11 @@ The system tracks:
 4. Add tests for new functionality
 5. Submit a pull request
 
-## 📝 License
+## License
 
 [Add your license information here]
 
-## 🆘 Support
+## Support
 
 For issues and questions:
 1. Check the logs in `testing_logs/`

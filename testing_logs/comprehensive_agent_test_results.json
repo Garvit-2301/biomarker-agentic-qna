@@ -1,0 +1,158 @@
+{
+  "test_timestamp": "2025-06-30T03:37:50.116652",
+  "domains": {
+    "methylation": {
+      "domain": "methylation",
+      "agents": {
+        "insight": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "qna": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "explainer": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "recommendation": {
+          "status": "success",
+          "response_length": 323,
+          "response_preview": "**Personalized Recommendations for user_001**\n\n**Lifestyle Changes**:\nregular exercise and stress ma..."
+        }
+      },
+      "passed": 4,
+      "failed": 0,
+      "errors": []
+    },
+    "metagenomics": {
+      "domain": "metagenomics",
+      "agents": {
+        "insight": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "qna": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "explainer": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        }
+      },
+      "passed": 3,
+      "failed": 0,
+      "errors": []
+    },
+    "proteomics": {
+      "domain": "proteomics",
+      "agents": {
+        "insight": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "qna": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "explainer": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        }
+      },
+      "passed": 3,
+      "failed": 0,
+      "errors": []
+    },
+    "transcriptomics": {
+      "domain": "transcriptomics",
+      "agents": {
+        "insight": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "qna": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "explainer": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        }
+      },
+      "passed": 3,
+      "failed": 0,
+      "errors": []
+    },
+    "whole_exome": {
+      "domain": "whole_exome",
+      "agents": {
+        "insight": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "qna": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "explainer": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        }
+      },
+      "passed": 3,
+      "failed": 0,
+      "errors": []
+    },
+    "whole_genome": {
+      "domain": "whole_genome",
+      "agents": {
+        "insight": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "qna": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        },
+        "explainer": {
+          "status": "success",
+          "response_length": 33,
+          "response_preview": "Mock response for analysis agent."
+        }
+      },
+      "passed": 3,
+      "failed": 0,
+      "errors": []
+    }
+  },
+  "offline_summary": {
+    "status": "success",
+    "domains_processed": 4,
+    "filepath": "test_user_summaries/user_001_comprehensive_summary.json"
+  },
+  "summary": {
+    "total_passed": 19,
+    "total_failed": 0,
+    "success_rate": 100.0
+  }
+}

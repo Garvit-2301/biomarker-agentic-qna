@@ -7,56 +7,50 @@ class CompareAgent(BaseAgent):
         baseline = context.get("baseline", {})
         user_id = context.get("user_id", "Unknown")
         
-        # Extract comprehensive data for comparison
-        health_score = report.get("health_score", 0)
-        similarity_score = report.get("similarity_score", 0)
-        diversity_scores = report.get("diversity_scores", {})
-        functional_markers = report.get("functional_markers", {})
-        microbiome_comp = report.get("microbiome_composition", {})
-        
         prompt = (
 f"""
-Compare user {user_id}'s microbiome report to population baseline data.
+You are a microbiome specialist comparing user {user_id}'s data to population baselines.
 
 USER DATA:
-Health Score: {health_score}
-Similarity Score: {similarity_score}
-Diversity Metrics: {diversity_scores}
-Functional Markers: {functional_markers}
-Microbiome Composition: {microbiome_comp}
+{json.dumps(report, indent=2)}
 
 POPULATION BASELINE:
 {json.dumps(baseline, indent=2)}
 
 Provide a comprehensive comparison including:
 
-1. HEALTH SCORE COMPARISON:
+1. OVERALL ASSESSMENT:
    - How user compares to population average
-   - Percentile ranking if possible
+   - Percentile rankings where available
    - Health implications
 
-2. DIVERSITY COMPARISON:
-   - Shannon diversity vs population norms
-   - Species richness comparison
-   - What this means for health
+2. KEY METRICS COMPARISON:
+   - Specific measurements vs population norms
+   - Statistical significance of differences
+   - Clinical relevance
 
-3. FUNCTIONAL MARKERS:
-   - SCFA levels vs healthy ranges
-   - Inflammation markers vs normal
-   - Metabolic implications
+3. RISK ASSESSMENT:
+   - Disease risk compared to population
+   - Protective factors identified
+   - Areas of concern
 
-4. MICROBIOME COMPOSITION:
-   - Firmicutes/Bacteroidetes ratio analysis
-   - Balance assessment
-   - Health implications
+4. STRENGTHS AND WEAKNESSES:
+   - Above-average areas
+   - Below-average areas
+   - Neutral findings
 
-5. OVERALL ASSESSMENT:
-   - Above/below average summary
-   - Key strengths and areas for improvement
-   - Risk factors identified
+5. POPULATION CONTEXT:
+   - Age/gender-specific comparisons
+   - Ethnic/ancestry considerations
+   - Lifestyle factor influences
+
+6. CLINICAL IMPLICATIONS:
+   - Monitoring recommendations
+   - Intervention opportunities
+   - Follow-up testing suggestions
 
 Use specific numbers and explain what they mean for the user's health.
 """
         )
-        return self.llm.generate(prompt, max_tokens=500)
+        return self.generate(prompt, max_tokens=500)
 

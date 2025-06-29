@@ -17,7 +17,7 @@ class DomainClassifierAgent(BaseAgent):
             "- whole_genome: Complete genome analysis, structural variants, genome-wide associations\n\n" +
             f"Query: '{user_query}'"
         )
-        raw = self.llm.generate(prompt, max_tokens=120, temperature=0)
+        raw = self.generate(prompt, max_tokens=120, temperature=0)
         try:
             data = json.loads(raw)
             domain = data.get("domain", "unknown")

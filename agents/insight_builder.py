@@ -6,53 +6,49 @@ class InsightBuilderAgent(BaseAgent):
         report = context.get("report", {})
         user_id = context.get("user_id", "Unknown")
         
-        # Extract comprehensive data
-        health_score = report.get("health_score", 0)
-        similarity_score = report.get("similarity_score", 0)
-        underrepresented_species = report.get("underrepresented_species", [])
-        microbiome_comp = report.get("microbiome_composition", {})
-        diversity_scores = report.get("diversity_scores", {})
-        functional_markers = report.get("functional_markers", {})
-        symptoms = report.get("symptoms", {})
-        diet = report.get("diet", {})
-        
         prompt = (
 f"""
-You are a gut-microbiome insight builder analyzing data for user {user_id}.
+You are a microbiome specialist analyzing user {user_id}'s data.
 
-COMPREHENSIVE REPORT DATA:
-Health Score: {health_score}
-Similarity Score (diabetes risk): {similarity_score}
-Underrepresented Species: {underrepresented_species}
+USER DATA:
+{json.dumps(report, indent=2)}
 
-Microbiome Composition:
-- Firmicutes: {microbiome_comp.get('firmicutes', 'N/A')}
-- Bacteroidetes: {microbiome_comp.get('bacteroidetes', 'N/A')}
-- Actinobacteria: {microbiome_comp.get('actinobacteria', 'N/A')}
-- Proteobacteria: {microbiome_comp.get('proteobacteria', 'N/A')}
+USER QUESTION: {user_query}
 
-Diversity Metrics:
-- Shannon Diversity: {diversity_scores.get('shannon_diversity', 'N/A')}
-- Species Richness: {diversity_scores.get('species_richness', 'N/A')}
+Provide comprehensive insights including:
 
-Functional Markers:
-- SCFA Levels: {functional_markers.get('scfa_levels', {})}
-- Inflammation Markers: {functional_markers.get('inflammation_markers', {})}
+1. KEY FINDINGS:
+   - Most important observations from the data
+   - Patterns and trends identified
+   - Notable deviations from normal ranges
 
-Current Symptoms: {symptoms}
-Current Diet: {diet}
+2. HEALTH IMPLICATIONS:
+   - What the findings mean for overall health
+   - Potential health benefits or risks
+   - Areas of concern or strength
 
-Generate a comprehensive analysis including:
-1. Clear interpretation of health_score (healthy vs non-healthy range)
-2. Meaning of similarity_score regarding diabetes risk
-3. Analysis of microbiome composition balance
-4. Diversity assessment and implications
-5. Role of under-represented species & risk implications
-6. Connection between symptoms, diet, and microbiome data
-7. End with a single-sentence summary in **bold**.
+3. MICROBIOME ASSESSMENT:
+   - Diversity and balance evaluation
+   - Functional capacity analysis
+   - Stability and resilience indicators
 
-Focus on actionable insights and explain what the data means for the user's health.
+4. LIFESTYLE FACTORS:
+   - How diet, exercise, stress might influence results
+   - Environmental factors to consider
+   - Behavioral patterns that could impact microbiome
+
+5. CLINICAL RELEVANCE:
+   - Medical conditions that might be affected
+   - Symptoms that could be related
+   - Preventive health opportunities
+
+6. ACTIONABLE INSIGHTS:
+   - Specific recommendations based on findings
+   - Areas for improvement
+   - Monitoring suggestions
+
+Provide evidence-based insights that are practical and actionable for the user.
 """
         )
-        return self.llm.generate(prompt, max_tokens=500)
+        return self.generate(prompt, max_tokens=500)
 

@@ -1,57 +1,75 @@
 import json
+from typing import Dict, Any
 from ..common.base import BaseAgent
 
 class MethylationRecommendationAgent(BaseAgent):
     def run(self, user_query: str, context: Dict[str, Any]) -> str:
         report = context.get("report", {})
-        demographics = context.get("demographics", {})
         user_id = context.get("user_id", "Unknown")
         
-        # Extract methylation-specific data
-        methylation_score = report.get("methylation_score", 0)
+        # Extract methylation-specific data for context
+        methylation_data = report.get("methylation_data", {})
         epigenetic_age = report.get("epigenetic_age", {})
-        methylation_patterns = report.get("methylation_patterns", {})
+        cpg_sites = report.get("cpg_sites", {})
         health_implications = report.get("health_implications", {})
         
         prompt = (
 f"""
-You are a methylation specialist providing personalized recommendations for user {user_id}.
+You are a DNA methylation specialist providing personalized recommendations for user {user_id}.
 
-USER PROFILE:
-Demographics: {demographics}
-Methylation Score: {methylation_score}
-Epigenetic Age: {epigenetic_age}
-Methylation Patterns: {methylation_patterns}
-Health Implications: {health_implications}
+METHYLATION DATA:
+{json.dumps(methylation_data, indent=2)}
 
-Provide personalized, evidence-based recommendations (3-4 specific suggestions each):
+EPIGENETIC AGE:
+{json.dumps(epigenetic_age, indent=2)}
 
-1. NUTRITION FOR METHYLATION:
-   - Methyl donors (folate, B12, choline)
-   - Foods that support methylation pathways
-   - Dietary factors that influence epigenetic age
+CPG SITES:
+{json.dumps(cpg_sites, indent=2)}
+
+HEALTH IMPLICATIONS:
+{json.dumps(health_implications, indent=2)}
+
+USER QUESTION: {user_query}
+
+Provide comprehensive, personalized methylation recommendations including:
+
+1. NUTRITION RECOMMENDATIONS:
+   - Methylation-supporting foods
+   - Folate and B-vitamin rich foods
+   - Foods that support epigenetic health
+   - Supplements for methylation support
 
 2. LIFESTYLE INTERVENTIONS:
-   - Exercise recommendations for methylation
-   - Stress management techniques
-   - Sleep optimization for epigenetic health
+   - Exercise recommendations for epigenetic health
+   - Stress management for methylation
+   - Sleep optimization strategies
+   - Environmental toxin avoidance
 
-3. SUPPLEMENTS (if appropriate):
-   - Methylation-supporting supplements
-   - Dosage recommendations
-   - Timing considerations
+3. METHYLATION SUPPORT:
+   - Specific methylation pathway support
+   - Detoxification support
+   - Antioxidant recommendations
+   - Anti-inflammatory strategies
 
-4. ENVIRONMENTAL FACTORS:
-   - Toxin avoidance strategies
-   - Environmental influences on methylation
-   - Protective measures
-
-5. MONITORING SUGGESTIONS:
-   - Follow-up testing recommendations
-   - Progress tracking methods
+4. MONITORING STRATEGIES:
+   - Follow-up methylation testing
    - Timeline for reassessment
+   - Key methylation markers to track
+   - Progress indicators
 
-Make recommendations specific to this user's methylation profile and epigenetic age.
+5. CLINICAL CONSIDERATIONS:
+   - Specialist referrals if needed
+   - Medical monitoring requirements
+   - Integration with existing treatments
+   - Emergency considerations
+
+6. IMPLEMENTATION PLAN:
+   - Priority order for changes
+   - Realistic timeline for implementation
+   - Support resources needed
+   - Success metrics
+
+Provide actionable, evidence-based recommendations that are personalized to the user's specific methylation profile and health goals.
 """
         )
-        return self.llm.generate(prompt, max_tokens=600) 
+        return self.generate(prompt, max_tokens=600) 

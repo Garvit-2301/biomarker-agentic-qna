@@ -4,57 +4,57 @@ from .base import BaseAgent
 class RecommendationAgent(BaseAgent):
     def run(self, user_query: str, context: Dict[str, Any]) -> str:
         report = context.get("report", {})
-        demographics = context.get("demographics", {})
         user_id = context.get("user_id", "Unknown")
-        
-        # Extract comprehensive data for personalized recommendations
-        health_score = report.get("health_score", 0)
-        underrepresented_species = report.get("underrepresented_species", [])
-        microbiome_comp = report.get("microbiome_composition", {})
-        diversity_scores = report.get("diversity_scores", {})
-        functional_markers = report.get("functional_markers", {})
-        symptoms = report.get("symptoms", {})
-        diet = report.get("diet", {})
         
         prompt = (
 f"""
-You are a microbiome recommendation agent providing personalized advice for user {user_id}.
+You are a microbiome specialist providing personalized recommendations for user {user_id}.
 
-USER PROFILE:
-Demographics: {demographics}
-Health Score: {health_score}
-Current Symptoms: {symptoms}
-Current Diet: {diet}
+USER DATA:
+{json.dumps(report, indent=2)}
 
-MICROBIOME ANALYSIS:
-Underrepresented Species: {underrepresented_species}
-Microbiome Composition: {microbiome_comp}
-Diversity Scores: {diversity_scores}
-Functional Markers: {functional_markers}
+USER QUESTION: {user_query}
 
-Provide personalized, practical recommendations (3-4 specific suggestions each):
+Provide comprehensive, personalized recommendations including:
 
-1. NUTRITION RECOMMENDATIONS:
-   - Foods to increase based on missing species
-   - Dietary changes to address symptoms
-   - Specific foods for microbiome diversity
+1. DIETARY RECOMMENDATIONS:
+   - Specific foods to include/avoid
+   - Macronutrient adjustments
+   - Timing and frequency of meals
+   - Supplements to consider
 
-2. LIFESTYLE RECOMMENDATIONS:
-   - Exercise suggestions based on energy levels
-   - Stress management if inflammation is high
-   - Sleep optimization if relevant
+2. LIFESTYLE INTERVENTIONS:
+   - Exercise recommendations
+   - Stress management strategies
+   - Sleep optimization
+   - Environmental factors
 
-3. SUPPLEMENTS (if appropriate):
-   - Probiotic strains to target missing species
-   - Prebiotics for diversity
-   - Anti-inflammatory supplements if needed
+3. MICROBIOME SUPPORT:
+   - Prebiotic and probiotic recommendations
+   - Fermented foods to include
+   - Foods that support beneficial bacteria
+   - Avoidance of microbiome disruptors
 
-4. MONITORING SUGGESTIONS:
-   - What to track for improvement
+4. MONITORING STRATEGIES:
+   - Follow-up testing recommendations
    - Timeline for reassessment
+   - Key metrics to track
+   - Progress indicators
 
-Make recommendations specific to this user's data and current health status.
+5. CLINICAL CONSIDERATIONS:
+   - Specialist referrals if needed
+   - Medical monitoring requirements
+   - Integration with existing treatments
+   - Emergency considerations
+
+6. IMPLEMENTATION PLAN:
+   - Priority order for changes
+   - Realistic timeline for implementation
+   - Support resources needed
+   - Success metrics
+
+Provide actionable, evidence-based recommendations that are personalized to the user's specific microbiome profile and health goals.
 """
         )
-        return self.llm.generate(prompt, max_tokens=600)
+        return self.generate(prompt, max_tokens=600)
 

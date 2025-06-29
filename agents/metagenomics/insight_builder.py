@@ -1,4 +1,5 @@
 import json
+from typing import Dict, Any
 from ..common.base import BaseAgent
 
 class MetagenomicsInsightBuilderAgent(BaseAgent):
@@ -6,72 +7,69 @@ class MetagenomicsInsightBuilderAgent(BaseAgent):
         report = context.get("report", {})
         user_id = context.get("user_id", "Unknown")
         
-        # Extract metagenomics-specific data
-        health_score = report.get("health_score", 0)
-        similarity_score = report.get("similarity_score", 0)
-        underrepresented_species = report.get("underrepresented_species", [])
-        microbiome_comp = report.get("microbiome_composition", {})
+        # Extract metagenomics-specific data for context
+        microbiome_data = report.get("microbiome_data", {})
         diversity_scores = report.get("diversity_scores", {})
         functional_markers = report.get("functional_markers", {})
-        symptoms = report.get("symptoms", {})
-        diet = report.get("diet", {})
+        health_implications = report.get("health_implications", {})
         
         prompt = (
 f"""
-You are a metagenomics specialist analyzing gut microbiome data for user {user_id}.
+You are a gut microbiome specialist analyzing data for user {user_id}.
 
-METAGENOMICS REPORT DATA:
-Health Score: {health_score}
-Similarity Score (diabetes risk): {similarity_score}
-Underrepresented Species: {underrepresented_species}
+MICROBIOME DATA:
+{json.dumps(microbiome_data, indent=2)}
 
-Microbiome Composition:
-- Firmicutes: {microbiome_comp.get('firmicutes', 'N/A')}
-- Bacteroidetes: {microbiome_comp.get('bacteroidetes', 'N/A')}
-- Actinobacteria: {microbiome_comp.get('actinobacteria', 'N/A')}
-- Proteobacteria: {microbiome_comp.get('proteobacteria', 'N/A')}
+DIVERSITY SCORES:
+{json.dumps(diversity_scores, indent=2)}
 
-Diversity Metrics:
-- Shannon Diversity: {diversity_scores.get('shannon_diversity', 'N/A')}
-- Species Richness: {diversity_scores.get('species_richness', 'N/A')}
+FUNCTIONAL MARKERS:
+{json.dumps(functional_markers, indent=2)}
 
-Functional Markers:
-- SCFA Levels: {functional_markers.get('scfa_levels', {})}
-- Inflammation Markers: {functional_markers.get('inflammation_markers', {})}
+HEALTH IMPLICATIONS:
+{json.dumps(health_implications, indent=2)}
 
-Current Symptoms: {symptoms}
-Current Diet: {diet}
+USER QUESTION: {user_query}
 
-Generate a comprehensive metagenomics analysis including:
+Provide comprehensive microbiome insights including:
 
-1. MICROBIOME HEALTH ASSESSMENT:
-   - Interpretation of health_score and diversity metrics
-   - Balance of bacterial phyla
-   - Overall microbiome health status
+1. MICROBIOME COMPOSITION ANALYSIS:
+   - Overall bacterial diversity
+   - Key species abundance
+   - Balance between phyla
+   - Dysbiosis indicators
 
-2. FUNCTIONAL ANALYSIS:
-   - SCFA production capacity
-   - Inflammation markers interpretation
-   - Metabolic implications
+2. DIVERSITY ASSESSMENT:
+   - Alpha diversity metrics
+   - Beta diversity patterns
+   - Species richness and evenness
+   - Health implications of diversity levels
 
-3. SPECIES ANALYSIS:
-   - Missing beneficial species
-   - Overrepresented harmful species
-   - Ecological relationships
+3. FUNCTIONAL CAPACITY:
+   - Metabolic pathway analysis
+   - Short-chain fatty acid production
+   - Vitamin synthesis capacity
+   - Immune modulation potential
 
-4. DIET-MICROBIOME INTERACTIONS:
-   - How current diet affects microbiome
-   - Food-microbiome relationships
-   - Dietary optimization opportunities
+4. HEALTH IMPLICATIONS:
+   - Gut barrier function
+   - Inflammation markers
+   - Metabolic health indicators
+   - Immune system interactions
 
-5. HEALTH IMPLICATIONS:
-   - Disease risk assessment
-   - Immune system implications
-   - Metabolic health connections
+5. LIFESTYLE FACTORS:
+   - How diet affects microbiome
+   - Exercise and microbiome health
+   - Stress impact on gut bacteria
+   - Environmental influences
 
-6. End with a single-sentence summary in **bold**.
+6. ACTIONABLE INSIGHTS:
+   - Specific microbiome targets
+   - Intervention opportunities
+   - Monitoring recommendations
+   - Prevention strategies
 
-Focus on actionable insights and explain what the metagenomics data means for the user's gut health and overall wellness.
+Provide evidence-based insights that explain microbiome patterns in the context of overall health and wellness.
 """
         )
-        return self.llm.generate(prompt, max_tokens=600) 
+        return self.generate(prompt, max_tokens=600) 

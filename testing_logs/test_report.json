@@ -1,5 +1,5 @@
 {
-  "test_timestamp": "2025-06-30T03:08:03.229690",
+  "test_timestamp": "2025-06-30T03:27:18.529483",
   "summary": {
     "total_tests": 54,
     "total_passed": 54,
@@ -58,17 +58,17 @@
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.414257,
+              "processing_time": 0.222215,
               "response_length": 59,
               "prompt_length": 2246
             },
             "summary": {
-              "processing_time": 0.293615,
+              "processing_time": 0.342499,
               "response_length": 273,
               "prompt_length": 1558
             },
             "recommendation": {
-              "processing_time": 0.316245,
+              "processing_time": 0.166748,
               "response_length": 328,
               "prompt_length": 2324
             }
@@ -80,17 +80,17 @@
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.223914,
+              "processing_time": 0.456472,
               "response_length": 422,
               "prompt_length": 1981
             },
             "summary": {
-              "processing_time": 0.297514,
+              "processing_time": 0.148696,
               "response_length": 273,
               "prompt_length": 1453
             },
             "recommendation": {
-              "processing_time": 0.44501,
+              "processing_time": 0.46788,
               "response_length": 328,
               "prompt_length": 1989
             }
@@ -102,17 +102,17 @@
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.204436,
+              "processing_time": 0.2141,
               "response_length": 56,
               "prompt_length": 2472
             },
             "summary": {
-              "processing_time": 0.289929,
+              "processing_time": 0.189291,
               "response_length": 273,
               "prompt_length": 1710
             },
             "recommendation": {
-              "processing_time": 0.171979,
+              "processing_time": 0.272519,
               "response_length": 328,
               "prompt_length": 2406
             }
@@ -124,17 +124,17 @@
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.479358,
+              "processing_time": 0.310683,
               "response_length": 54,
               "prompt_length": 2305
             },
             "summary": {
-              "processing_time": 0.362629,
+              "processing_time": 0.189845,
               "response_length": 273,
               "prompt_length": 1565
             },
             "recommendation": {
-              "processing_time": 0.341208,
+              "processing_time": 0.455926,
               "response_length": 328,
               "prompt_length": 2317
             }
@@ -146,17 +146,17 @@
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.143138,
+              "processing_time": 0.300536,
               "response_length": 55,
               "prompt_length": 2251
             },
             "summary": {
-              "processing_time": 0.372317,
+              "processing_time": 0.336085,
               "response_length": 273,
               "prompt_length": 1574
             },
             "recommendation": {
-              "processing_time": 0.318387,
+              "processing_time": 0.433689,
               "response_length": 328,
               "prompt_length": 2187
             }
@@ -168,17 +168,17 @@
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.203932,
+              "processing_time": 0.452059,
               "response_length": 377,
               "prompt_length": 2162
             },
             "summary": {
-              "processing_time": 0.143935,
+              "processing_time": 0.330994,
               "response_length": 273,
               "prompt_length": 1564
             },
             "recommendation": {
-              "processing_time": 0.265246,
+              "processing_time": 0.296269,
               "response_length": 328,
               "prompt_length": 2125
             }
@@ -193,17 +193,17 @@
         {
           "step": "analysis",
           "success": true,
-          "processing_time": 0.19558
+          "processing_time": 0.380803
         },
         {
           "step": "summary",
           "success": true,
-          "processing_time": 0.492605
+          "processing_time": 0.108917
         },
         {
           "step": "recommendation",
           "success": true,
-          "processing_time": 0.26207
+          "processing_time": 0.363477
         }
       ]
     }

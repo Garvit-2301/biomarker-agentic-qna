@@ -1,4 +1,3 @@
-
 import json
 from .base import BaseAgent
 
@@ -8,12 +7,10 @@ class IntentClassifierAgent(BaseAgent):
     def run(self, user_query: str, context: Dict[str, Any]) -> str:
         prompt = (
             "Classify query into one of: %s. " % self.CATEGORIES +
-            "Return JSON with keys 'intent' & 'confidence'.
-
-" +
+            "Return JSON with keys 'intent' & 'confidence'.\n\n" +
             f"Query: '{user_query}'"
         )
-        raw = self.llm.generate(prompt, max_tokens=120, temperature=0)
+        raw = self.generate(prompt, max_tokens=120, temperature=0)
         try:
             data = json.loads(raw)
             intent = data.get("intent", "Unknown")
