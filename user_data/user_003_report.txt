@@ -1,0 +1,38 @@
+{
+  "user_id": "user_003",
+  "report_date": "2024-01-17",
+  "similarity_score": 0.312,
+  "health_score": 0.045,
+  "underrepresented_species": ["Bifidobacterium longum", "Faecalibacterium prausnitzii"],
+  "microbiome_composition": {
+    "firmicutes": 0.38,
+    "bacteroidetes": 0.42,
+    "actinobacteria": 0.08,
+    "proteobacteria": 0.12
+  },
+  "diversity_scores": {
+    "shannon_diversity": 2.8,
+    "species_richness": 120
+  },
+  "functional_markers": {
+    "scfa_levels": {
+      "butyrate": 1.2,
+      "propionate": 1.5,
+      "acetate": 3.1
+    },
+    "inflammation_markers": {
+      "calprotectin": 78,
+      "crp": 4.2
+    }
+  },
+  "symptoms": {
+    "bloating": "severe",
+    "energy_levels": "very_low",
+    "bowel_movements": "constipation"
+  },
+  "diet": {
+    "current_diet": "western",
+    "fiber_intake": "very_low",
+    "probiotic_foods": []
+  }
+} 

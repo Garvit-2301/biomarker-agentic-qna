@@ -1,0 +1,29 @@
+WHOLE EXOME SEQUENCING REPORT - User: test_user_001
+Date: 2024-01-15
+
+Variant Analysis:
+- Total variants: 3,247
+- Rare variants: 156
+- Novel variants: 23
+- Pathogenic variants: 2
+
+Key Findings:
+- MTHFR C677T: Heterozygous (CT)
+- COMT V158M: Homozygous (GG)
+- APOE: E3/E3 (Normal)
+- BRCA1/2: No pathogenic variants
+
+Carrier Status:
+- Cystic fibrosis: Carrier (1 variant)
+- Sickle cell anemia: Not carrier
+- Tay-Sachs: Not carrier
+
+Pharmacogenomics:
+- CYP2D6: Normal metabolizer
+- CYP2C19: Normal metabolizer
+- CYP3A4: Normal metabolizer
+
+Clinical Implications:
+- Normal genetic risk profile
+- No actionable genetic findings
+- Standard medication metabolism 

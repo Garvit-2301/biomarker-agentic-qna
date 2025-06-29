@@ -1,0 +1,52 @@
+{
+  "domain": "proteomics",
+  "description": "Protein expression and proteomics analysis prompts",
+  "agents": {
+    "analysis": {
+      "name": "ProteomicsAnalysisAgent",
+      "description": "Comprehensive protein expression analysis and interpretation",
+      "prompt": {
+        "system": "You are a proteomics specialist with expertise in protein expression analysis, biomarker interpretation, and functional proteomics.",
+        "user_template": "Analyze the proteomics data for user {user_id}:\n\nPROTEOMICS DATA:\n{proteomics_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a comprehensive analysis including:\n\n1. PROTEIN EXPRESSION ANALYSIS:\n   - Key proteins and their expression levels\n   - Upregulated vs downregulated proteins\n   - Biological significance of expression changes\n   - Protein abundance patterns\n\n2. BIOMARKER INTERPRETATION:\n   - Clinical biomarker levels and significance\n   - Disease risk indicators and prognostic markers\n   - Health status markers and monitoring\n   - Biomarker correlation analysis\n\n3. PATHWAY ANALYSIS:\n   - Affected biological pathways and networks\n   - Metabolic pathway implications\n   - Cellular process disruptions\n   - Signaling pathway alterations\n\n4. POST-TRANSLATIONAL MODIFICATIONS:\n   - Protein modifications and their significance\n   - Phosphorylation, glycosylation, and other PTMs\n   - Functional implications of modifications\n   - Regulatory effects on protein function\n\n5. PROTEIN INTERACTION NETWORKS:\n   - Protein-protein interactions and complexes\n   - Network perturbations and implications\n   - Functional module analysis\n   - Pathway connectivity changes\n\n6. DISEASE ASSOCIATIONS:\n   - Disease-related protein changes\n   - Risk assessment based on protein profiles\n   - Prognostic implications\n   - Therapeutic target identification\n\n7. CLINICAL RELEVANCE:\n   - Diagnostic potential of protein markers\n   - Therapeutic targeting opportunities\n   - Monitoring recommendations\n   - Intervention strategies\n\nFocus on actionable insights and explain what the proteomics data means for the user's health and potential interventions.",
+        "parameters": {
+          "max_tokens": 800,
+          "temperature": 0.3
+        }
+      }
+    },
+    "summary": {
+      "name": "ProteomicsSummaryAgent",
+      "description": "Concise summary of proteomics findings and key insights",
+      "prompt": {
+        "system": "You are a proteomics specialist creating clear, concise summaries of complex protein data for patients.",
+        "user_template": "Create a patient-friendly summary of proteomics results for user {user_id}:\n\nPROTEOMICS DATA:\n{proteomics_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a clear, concise summary including:\n\n1. EXECUTIVE SUMMARY:\n   - Overall protein health status (1-2 sentences)\n   - Key findings and implications\n\n2. PROTEIN EXPRESSION:\n   - Number of proteins analyzed\n   - Key expression patterns\n\n3. KEY FINDINGS:\n   - 3-4 most important protein findings\n   - Health implications of each\n\n4. RISK ASSESSMENT:\n   - Disease risks based on protein profiles\n   - Protective factors identified\n\n5. ACTION ITEMS:\n   - 2-3 specific recommendations\n   - Follow-up testing suggestions\n\n6. LAYMAN'S EXPLANATION:\n   - What protein expression means in simple terms\n   - Why these results matter for health\n\nKeep the summary accessible to someone without scientific background. Use clear, non-technical language where possible.",
+        "parameters": {
+          "max_tokens": 500,
+          "temperature": 0.2
+        }
+      }
+    },
+    "recommendation": {
+      "name": "ProteomicsRecommendationAgent",
+      "description": "Personalized recommendations based on proteomics analysis",
+      "prompt": {
+        "system": "You are a proteomics specialist providing evidence-based, personalized recommendations for protein health optimization.",
+        "user_template": "Provide personalized recommendations for user {user_id} based on proteomics analysis:\n\nPROTEOMICS DATA:\n{proteomics_data}\n\nUSER CONTEXT:\n{user_context}\n\nGenerate comprehensive, actionable recommendations:\n\n1. NUTRITION FOR PROTEIN OPTIMIZATION:\n   - Protein intake recommendations based on expression\n   - Amino acid supplementation if needed\n   - Foods that support protein synthesis\n   - Dietary factors affecting protein expression\n\n2. LIFESTYLE INTERVENTIONS:\n   - Exercise recommendations for protein expression\n   - Stress management impact on protein levels\n   - Sleep optimization for protein synthesis\n   - Environmental factors affecting proteins\n\n3. SUPPLEMENTS (if appropriate):\n   - Protein supplements based on deficiencies\n   - Amino acid supplementation\n   - Specific dosages and timing\n   - Monitoring recommendations\n\n4. CLINICAL MONITORING:\n   - Protein biomarker monitoring\n   - Follow-up testing recommendations\n   - Specialist referrals if needed\n   - Progress tracking methods\n\n5. THERAPEUTIC TARGETING:\n   - Potential therapeutic interventions\n   - Drug targeting opportunities\n   - Alternative treatment options\n   - Clinical trial considerations\n\n6. MONITORING AND FOLLOW-UP:\n   - Recommended follow-up testing\n   - Timeline for reassessment\n   - Progress tracking methods\n   - Key metrics to monitor\n\n7. CLINICAL CONSIDERATIONS:\n   - Integration with existing treatments\n   - Medical monitoring recommendations\n   - Specialist referrals\n   - Healthcare provider communication\n\nMake recommendations specific to this user's protein profile, symptoms, and health status. Include evidence-based rationale for each recommendation.",
+        "parameters": {
+          "max_tokens": 700,
+          "temperature": 0.3
+        }
+      }
+    }
+  },
+  "common_prompts": {
+    "explain_term": {
+      "description": "Explain proteomics-specific terms",
+      "prompt": "Explain the protein term '{term}' in simple language. Include what it measures, why it matters for health, and what healthy vs unhealthy ranges look like. Focus on practical implications for the user."
+    },
+    "compare_population": {
+      "description": "Compare proteomics data to population",
+      "prompt": "Compare user {user_id}'s protein data to population baselines. Include expression level comparisons, biomarker ranges, and health implications. Explain what being above/below average means for their health."
+    }
+  }
+} 

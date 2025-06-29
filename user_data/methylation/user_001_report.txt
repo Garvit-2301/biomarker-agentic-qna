@@ -1,0 +1,52 @@
+{
+  "user_id": "user_001",
+  "report_date": "2024-01-15",
+  "domain": "methylation",
+  "methylation_score": 0.72,
+  "cpg_sites": {
+    "total_analyzed": 850000,
+    "methylated_sites": 612000,
+    "unmethylated_sites": 238000,
+    "key_regions": {
+      "promoter_regions": 0.68,
+      "gene_bodies": 0.75,
+      "enhancer_regions": 0.71,
+      "cpg_islands": 0.69
+    }
+  },
+  "epigenetic_age": {
+    "chronological_age": 35,
+    "biological_age": 42,
+    "age_acceleration": 7,
+    "age_percentile": 85
+  },
+  "methylation_patterns": {
+    "tissue_specific": {
+      "blood": 0.72,
+      "buccal": 0.68,
+      "saliva": 0.70
+    },
+    "disease_associated": {
+      "cancer_risk": "moderate",
+      "cardiovascular_risk": "high",
+      "diabetes_risk": "moderate"
+    }
+  },
+  "health_implications": {
+    "inflammation_markers": {
+      "il6_methylation": 0.65,
+      "tnf_alpha_methylation": 0.58,
+      "crp_methylation": 0.72
+    },
+    "metabolic_markers": {
+      "insulin_methylation": 0.68,
+      "leptin_methylation": 0.71,
+      "adiponectin_methylation": 0.64
+    },
+    "stress_response": {
+      "cortisol_methylation": 0.69,
+      "bdnf_methylation": 0.62,
+      "nr3c1_methylation": 0.75
+    }
+  }
+} 

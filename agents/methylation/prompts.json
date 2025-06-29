@@ -1,0 +1,52 @@
+{
+  "domain": "methylation",
+  "description": "DNA methylation and epigenetic analysis prompts",
+  "agents": {
+    "analysis": {
+      "name": "MethylationAnalysisAgent",
+      "description": "Comprehensive methylation data analysis and interpretation",
+      "prompt": {
+        "system": "You are a DNA methylation specialist with expertise in epigenetic analysis, CpG site interpretation, and epigenetic age assessment.",
+        "user_template": "Analyze the methylation data for user {user_id}:\n\nMETHYLATION DATA:\n{methylation_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a comprehensive analysis including:\n\n1. METHYLATION SCORE INTERPRETATION:\n   - Overall methylation status and health implications\n   - Age-related methylation patterns\n   - Disease risk assessment based on methylation\n\n2. CPG SITES ANALYSIS:\n   - Key CpG sites and their biological significance\n   - Promoter vs gene body methylation patterns\n   - Regulatory implications of methylation changes\n\n3. EPIGENETIC AGE ASSESSMENT:\n   - Biological vs chronological age comparison\n   - Age acceleration/deceleration analysis\n   - Health implications of epigenetic aging\n\n4. TISSUE-SPECIFIC PATTERNS:\n   - Methylation differences across tissues\n   - Tissue-specific health implications\n   - Consistency of methylation patterns\n\n5. DISEASE ASSOCIATIONS:\n   - Cancer risk based on methylation patterns\n   - Cardiovascular disease methylation markers\n   - Metabolic disease methylation signatures\n\n6. ENVIRONMENTAL INFLUENCES:\n   - Lifestyle factors affecting methylation\n   - Environmental toxin methylation effects\n   - Stress and methylation relationships\n\n7. CLINICAL RELEVANCE:\n   - Diagnostic potential of methylation markers\n   - Prognostic implications\n   - Therapeutic targeting opportunities\n\nFocus on actionable insights and explain what the methylation data means for the user's health and aging.",
+        "parameters": {
+          "max_tokens": 800,
+          "temperature": 0.3
+        }
+      }
+    },
+    "summary": {
+      "name": "MethylationSummaryAgent",
+      "description": "Concise summary of methylation findings and key insights",
+      "prompt": {
+        "system": "You are a methylation specialist creating clear, concise summaries of complex epigenetic data for patients.",
+        "user_template": "Create a patient-friendly summary of methylation results for user {user_id}:\n\nMETHYLATION DATA:\n{methylation_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a clear, concise summary including:\n\n1. EXECUTIVE SUMMARY:\n   - Overall methylation health status (1-2 sentences)\n   - Key findings and implications\n\n2. EPIGENETIC AGE:\n   - Biological age vs chronological age\n   - What this means for health\n\n3. KEY FINDINGS:\n   - 3-4 most important methylation patterns\n   - Health implications of each\n\n4. RISK ASSESSMENT:\n   - Disease risks based on methylation\n   - Protective factors identified\n\n5. ACTION ITEMS:\n   - 2-3 specific recommendations\n   - Follow-up testing suggestions\n\n6. LAYMAN'S EXPLANATION:\n   - What methylation means in simple terms\n   - Why these results matter\n\nKeep the summary accessible to someone without scientific background. Use clear, non-technical language where possible.",
+        "parameters": {
+          "max_tokens": 500,
+          "temperature": 0.2
+        }
+      }
+    },
+    "recommendation": {
+      "name": "MethylationRecommendationAgent",
+      "description": "Personalized recommendations based on methylation analysis",
+      "prompt": {
+        "system": "You are a methylation specialist providing evidence-based, personalized recommendations for epigenetic health optimization.",
+        "user_template": "Provide personalized recommendations for user {user_id} based on methylation analysis:\n\nMETHYLATION DATA:\n{methylation_data}\n\nUSER CONTEXT:\n{user_context}\n\nGenerate comprehensive, actionable recommendations:\n\n1. NUTRITION FOR METHYLATION:\n   - Methyl donors (folate, B12, choline, betaine)\n   - Foods that support methylation pathways\n   - Dietary factors that influence epigenetic age\n   - Specific food recommendations with quantities\n\n2. LIFESTYLE INTERVENTIONS:\n   - Exercise recommendations for methylation optimization\n   - Stress management techniques for epigenetic health\n   - Sleep optimization strategies\n   - Environmental toxin avoidance\n\n3. SUPPLEMENTS (if appropriate):\n   - Methylation-supporting supplements\n   - Specific dosages and timing\n   - Contraindications and interactions\n   - Monitoring recommendations\n\n4. ENVIRONMENTAL FACTORS:\n   - Toxin avoidance strategies\n   - Environmental influences on methylation\n   - Protective measures and lifestyle changes\n\n5. MONITORING AND FOLLOW-UP:\n   - Recommended follow-up testing\n   - Timeline for reassessment\n   - Progress tracking methods\n   - Key metrics to monitor\n\n6. CLINICAL CONSIDERATIONS:\n   - Specialist referrals if needed\n   - Medical monitoring recommendations\n   - Integration with existing treatments\n\nMake recommendations specific to this user's methylation profile, age, and health status. Include evidence-based rationale for each recommendation.",
+        "parameters": {
+          "max_tokens": 700,
+          "temperature": 0.3
+        }
+      }
+    }
+  },
+  "common_prompts": {
+    "explain_term": {
+      "description": "Explain methylation-specific terms",
+      "prompt": "Explain the methylation term '{term}' in simple language. Include what it measures, why it matters for health, and what healthy vs unhealthy ranges look like. Focus on practical implications for the user."
+    },
+    "compare_population": {
+      "description": "Compare methylation data to population",
+      "prompt": "Compare user {user_id}'s methylation data to population baselines. Include percentile rankings, age-specific comparisons, and health implications. Explain what being above/below average means for their health."
+    }
+  }
+} 

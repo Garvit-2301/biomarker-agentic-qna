@@ -1,0 +1,76 @@
+{
+  "domain": "common",
+  "description": "Common agents and prompts used across all biomarker domains",
+  "agents": {
+    "intent_classifier": {
+      "name": "IntentClassifierAgent",
+      "description": "Classifies user intent to route to appropriate specialized agent",
+      "prompt": {
+        "system": "You are an intent classification specialist that analyzes user queries to determine the most appropriate agent to handle their request.",
+        "user_template": "Classify the intent of this user query: '{user_query}'\n\nAvailable intents:\n- Analysis: Deep technical analysis of biomarker data\n- Summary: Concise, patient-friendly summary of findings\n- Recommendation: Personalized recommendations and action items\n- Compare: Comparison with population data or previous results\n- Explain: Explanation of specific terms or concepts\n\nRespond with only the intent name (Analysis, Summary, Recommendation, Compare, or Explain).",
+        "parameters": {
+          "max_tokens": 50,
+          "temperature": 0.1
+        }
+      }
+    },
+    "domain_classifier": {
+      "name": "DomainClassifierAgent",
+      "description": "Classifies the domain of the user query to route to appropriate specialized domain",
+      "prompt": {
+        "system": "You are a domain classification specialist that analyzes user queries to determine the most appropriate biomarker domain.",
+        "user_template": "Classify the domain of this user query: '{user_query}'\n\nAvailable domains:\n- Methylation: DNA methylation, epigenetic age, CpG sites\n- Metagenomics: Gut microbiome, bacterial composition, SCFA\n- Whole Exome: Genetic variants, exome sequencing, mutations\n- Proteomics: Protein expression, biomarkers, protein pathways\n- Transcriptomics: Gene expression, RNA sequencing, gene regulation\n- Whole Genome: Genome-wide analysis, ancestry, structural variants\n\nRespond with only the domain name.",
+        "parameters": {
+          "max_tokens": 50,
+          "temperature": 0.1
+        }
+      }
+    },
+    "compare": {
+      "name": "CompareAgent",
+      "description": "Compares user data with population baselines or previous results",
+      "prompt": {
+        "system": "You are a comparative analysis specialist that compares biomarker data with population baselines and provides meaningful insights.",
+        "user_template": "Compare the biomarker data for user {user_id}:\n\nBIOMARKER DATA:\n{biomarker_data}\n\nPOPULATION BASELINES:\n{population_baselines}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a comprehensive comparison including:\n\n1. POPULATION COMPARISON:\n   - Percentile rankings for key metrics\n   - Age and gender-specific comparisons\n   - Population distribution analysis\n   - Statistical significance of differences\n\n2. TREND ANALYSIS:\n   - Changes over time if available\n   - Improvement or decline patterns\n   - Seasonal or cyclical variations\n   - Intervention effectiveness\n\n3. RISK ASSESSMENT:\n   - Risk stratification based on comparisons\n   - Protective factors vs risk factors\n   - Population-based risk predictions\n   - Individual risk modifiers\n\n4. CLINICAL INTERPRETATION:\n   - Clinical significance of differences\n   - Normal vs abnormal ranges\n   - Action thresholds and triggers\n   - Monitoring recommendations\n\n5. PERSONALIZED INSIGHTS:\n   - Individual-specific patterns\n   - Unique characteristics\n   - Personalized risk factors\n   - Customized recommendations\n\nFocus on actionable insights and explain what the comparisons mean for the user's health.",
+        "parameters": {
+          "max_tokens": 600,
+          "temperature": 0.3
+        }
+      }
+    },
+    "explainer": {
+      "name": "ExplainerAgent",
+      "description": "Explains specific terms, concepts, or biomarkers in simple language",
+      "prompt": {
+        "system": "You are a biomarker education specialist that explains complex scientific concepts in clear, accessible language.",
+        "user_template": "Explain the term '{term}' in the context of biomarker analysis:\n\nUSER CONTEXT:\n{user_context}\n\nProvide a comprehensive explanation including:\n\n1. BASIC DEFINITION:\n   - Simple, clear definition\n   - What it measures or represents\n   - Basic scientific concept\n\n2. HEALTH SIGNIFICANCE:\n   - Why this biomarker matters for health\n   - What it tells us about the body\n   - Connection to disease or wellness\n\n3. NORMAL RANGES:\n   - Healthy vs unhealthy levels\n   - Age and gender considerations\n   - Population variations\n\n4. CLINICAL IMPLICATIONS:\n   - What high/low levels mean\n   - Disease associations\n   - Health implications\n\n5. PRACTICAL APPLICATIONS:\n   - How it's used in medicine\n   - Testing methods\n   - Interpretation guidelines\n\n6. LIFESTYLE FACTORS:\n   - What affects this biomarker\n   - Modifiable vs non-modifiable factors\n   - Optimization strategies\n\nUse clear, non-technical language and provide practical examples. Make the explanation accessible to someone without a scientific background.",
+        "parameters": {
+          "max_tokens": 500,
+          "temperature": 0.2
+        }
+      }
+    }
+  },
+  "common_prompts": {
+    "explain_term": {
+      "description": "Explain biomarker-specific terms",
+      "prompt": "Explain the biomarker term '{term}' in simple language. Include what it measures, why it matters for health, and what healthy vs unhealthy ranges look like. Focus on practical implications for the user."
+    },
+    "compare_population": {
+      "description": "Compare biomarker data to population",
+      "prompt": "Compare user {user_id}'s biomarker data to population baselines. Include percentile rankings, age-specific comparisons, and health implications. Explain what being above/below average means for their health."
+    },
+    "general_analysis": {
+      "description": "General analysis prompt template for any biomarker domain",
+      "prompt": "Analyze the {domain} data for user {user_id}:\n\n{domain.upper()} DATA:\n{data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a comprehensive analysis focusing on:\n1. Key findings and patterns\n2. Health implications\n3. Risk assessment\n4. Clinical relevance\n5. Actionable insights\n\nExplain what the data means for the user's health in clear, actionable terms."
+    },
+    "general_summary": {
+      "description": "General summary prompt template for any biomarker domain",
+      "prompt": "Create a patient-friendly summary of {domain} results for user {user_id}:\n\n{domain.upper()} DATA:\n{data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a clear, concise summary including:\n1. Executive summary\n2. Key findings\n3. Risk assessment\n4. Action items\n5. Layman's explanation\n\nKeep the summary accessible to someone without scientific background."
+    },
+    "general_recommendation": {
+      "description": "General recommendation prompt template for any biomarker domain",
+      "prompt": "Provide personalized recommendations for user {user_id} based on {domain} analysis:\n\n{domain.upper()} DATA:\n{data}\n\nUSER CONTEXT:\n{user_context}\n\nGenerate comprehensive, actionable recommendations covering:\n1. Lifestyle interventions\n2. Clinical monitoring\n3. Preventive measures\n4. Follow-up testing\n5. Specialist referrals\n\nMake recommendations specific to this user's profile and health status."
+    }
+  }
+} 

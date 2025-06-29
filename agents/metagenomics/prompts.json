@@ -1,0 +1,52 @@
+{
+  "domain": "metagenomics",
+  "description": "Gut microbiome and metagenomics analysis prompts",
+  "agents": {
+    "analysis": {
+      "name": "MetagenomicsAnalysisAgent",
+      "description": "Comprehensive microbiome data analysis and interpretation",
+      "prompt": {
+        "system": "You are a metagenomics specialist with expertise in gut microbiome analysis, bacterial composition, and functional metagenomics.",
+        "user_template": "Analyze the metagenomics data for user {user_id}:\n\nMETAGENOMICS DATA:\n{metagenomics_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a comprehensive analysis including:\n\n1. MICROBIOME COMPOSITION ANALYSIS:\n   - Bacterial phyla distribution and balance\n   - Key species abundance and significance\n   - Diversity metrics interpretation\n   - Overall microbiome health assessment\n\n2. FUNCTIONAL ANALYSIS:\n   - SCFA production capacity and levels\n   - Inflammation markers and gut barrier function\n   - Metabolic pathway analysis\n   - Immune system interactions\n\n3. SPECIES-SPECIFIC ANALYSIS:\n   - Beneficial species presence/absence\n   - Pathogenic species identification\n   - Keystone species analysis\n   - Ecological relationships\n\n4. DIET-MICROBIOME INTERACTIONS:\n   - Current diet impact on microbiome\n   - Food-microbiome relationships\n   - Dietary optimization opportunities\n   - Prebiotic and probiotic needs\n\n5. HEALTH IMPLICATIONS:\n   - Disease risk assessment\n   - Immune system implications\n   - Metabolic health connections\n   - Digestive health status\n\n6. COMPARATIVE ANALYSIS:\n   - Population comparisons\n   - Age and gender-specific patterns\n   - Lifestyle factor influences\n   - Geographic considerations\n\n7. CLINICAL RELEVANCE:\n   - Diagnostic potential of microbiome markers\n   - Therapeutic targeting opportunities\n   - Monitoring recommendations\n   - Intervention strategies\n\nFocus on actionable insights and explain what the microbiome data means for the user's gut health and overall wellness.",
+        "parameters": {
+          "max_tokens": 800,
+          "temperature": 0.3
+        }
+      }
+    },
+    "summary": {
+      "name": "MetagenomicsSummaryAgent",
+      "description": "Concise summary of microbiome findings and key insights",
+      "prompt": {
+        "system": "You are a metagenomics specialist creating clear, concise summaries of complex microbiome data for patients.",
+        "user_template": "Create a patient-friendly summary of microbiome results for user {user_id}:\n\nMETAGENOMICS DATA:\n{metagenomics_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a clear, concise summary including:\n\n1. EXECUTIVE SUMMARY:\n   - Overall microbiome health status (1-2 sentences)\n   - Key findings and implications\n\n2. MICROBIOME DIVERSITY:\n   - Diversity score and what it means\n   - Comparison to healthy ranges\n\n3. KEY FINDINGS:\n   - 3-4 most important microbiome patterns\n   - Health implications of each\n\n4. RISK ASSESSMENT:\n   - Disease risks based on microbiome\n   - Protective factors identified\n\n5. ACTION ITEMS:\n   - 2-3 specific recommendations\n   - Follow-up testing suggestions\n\n6. LAYMAN'S EXPLANATION:\n   - What microbiome means in simple terms\n   - Why these results matter for health\n\nKeep the summary accessible to someone without scientific background. Use clear, non-technical language where possible.",
+        "parameters": {
+          "max_tokens": 500,
+          "temperature": 0.2
+        }
+      }
+    },
+    "recommendation": {
+      "name": "MetagenomicsRecommendationAgent",
+      "description": "Personalized recommendations based on microbiome analysis",
+      "prompt": {
+        "system": "You are a metagenomics specialist providing evidence-based, personalized recommendations for microbiome health optimization.",
+        "user_template": "Provide personalized recommendations for user {user_id} based on microbiome analysis:\n\nMETAGENOMICS DATA:\n{metagenomics_data}\n\nUSER CONTEXT:\n{user_context}\n\nGenerate comprehensive, actionable recommendations:\n\n1. NUTRITION FOR MICROBIOME:\n   - Prebiotic foods to increase beneficial bacteria\n   - Probiotic foods and fermented products\n   - Foods to avoid that harm microbiome\n   - Specific dietary changes with quantities\n\n2. LIFESTYLE INTERVENTIONS:\n   - Exercise recommendations for microbiome health\n   - Stress management impact on gut bacteria\n   - Sleep optimization for microbiome\n   - Environmental factors affecting gut health\n\n3. SUPPLEMENTS (if appropriate):\n   - Probiotic strains targeting specific deficiencies\n   - Prebiotic supplements for diversity\n   - Specific dosages and timing\n   - Monitoring recommendations\n\n4. DIETARY STRATEGIES:\n   - Fiber intake optimization\n   - Plant diversity recommendations\n   - Meal timing and frequency\n   - Hydration and microbiome\n\n5. MONITORING AND FOLLOW-UP:\n   - Recommended follow-up testing\n   - Timeline for reassessment\n   - Progress tracking methods\n   - Key metrics to monitor\n\n6. CLINICAL CONSIDERATIONS:\n   - Specialist referrals if needed\n   - Medical monitoring recommendations\n   - Integration with existing treatments\n   - Antibiotic considerations\n\nMake recommendations specific to this user's microbiome profile, symptoms, and health status. Include evidence-based rationale for each recommendation.",
+        "parameters": {
+          "max_tokens": 700,
+          "temperature": 0.3
+        }
+      }
+    }
+  },
+  "common_prompts": {
+    "explain_term": {
+      "description": "Explain metagenomics-specific terms",
+      "prompt": "Explain the microbiome term '{term}' in simple language. Include what it measures, why it matters for gut health, and what healthy vs unhealthy ranges look like. Focus on practical implications for the user."
+    },
+    "compare_population": {
+      "description": "Compare microbiome data to population",
+      "prompt": "Compare user {user_id}'s microbiome data to population baselines. Include percentile rankings, age-specific comparisons, and health implications. Explain what being above/below average means for their gut health."
+    }
+  }
+} 

@@ -1,0 +1,52 @@
+{
+  "domain": "whole_genome",
+  "description": "Whole genome sequencing and genomic analysis prompts",
+  "agents": {
+    "analysis": {
+      "name": "WholeGenomeAnalysisAgent",
+      "description": "Comprehensive whole genome analysis and interpretation",
+      "prompt": {
+        "system": "You are a genomic specialist with expertise in whole genome sequencing, structural variants, and population genomics.",
+        "user_template": "Analyze the whole genome data for user {user_id}:\n\nWHOLE GENOME DATA:\n{whole_genome_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a comprehensive analysis including:\n\n1. GENETIC VARIANT ANALYSIS:\n   - SNP interpretation and population frequency\n   - Structural variant implications\n   - Copy number variant effects\n   - Novel variant assessment\n\n2. GENOME-WIDE ASSOCIATION STUDIES:\n   - Disease risk associations and odds ratios\n   - Trait associations and effect sizes\n   - Population-specific findings\n   - Polygenic risk scores\n\n3. ANCESTRY AND POPULATION GENETICS:\n   - Genetic ancestry composition and origins\n   - Population-specific risks and protective factors\n   - Evolutionary implications and selection\n   - Geographic ancestry patterns\n\n4. COMPLEX TRAIT ANALYSIS:\n   - Polygenic risk scores for complex diseases\n   - Trait predictions and heritability\n   - Gene-environment interactions\n   - Complex disease predispositions\n\n5. STRUCTURAL GENOMIC VARIATIONS:\n   - Large-scale genomic changes and implications\n   - Chromosomal abnormalities and effects\n   - Functional implications of structural variants\n   - Clinical significance assessment\n\n6. CLINICAL INTERPRETATION:\n   - Disease risk assessment and stratification\n   - Pharmacogenomic implications\n   - Personalized medicine opportunities\n   - Clinical decision support\n\n7. FAMILY AND REPRODUCTIVE IMPLICATIONS:\n   - Inheritance patterns and family risk\n   - Reproductive planning considerations\n   - Genetic counseling recommendations\n   - Family member testing needs\n\nFocus on actionable insights and explain what the whole genome data means for the user's health, ancestry, and personalized medicine opportunities.",
+        "parameters": {
+          "max_tokens": 800,
+          "temperature": 0.3
+        }
+      }
+    },
+    "summary": {
+      "name": "WholeGenomeSummaryAgent",
+      "description": "Concise summary of whole genome findings and key insights",
+      "prompt": {
+        "system": "You are a genomic specialist creating clear, concise summaries of complex whole genome data for patients.",
+        "user_template": "Create a patient-friendly summary of whole genome results for user {user_id}:\n\nWHOLE GENOME DATA:\n{whole_genome_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a clear, concise summary including:\n\n1. EXECUTIVE SUMMARY:\n   - Overall genomic health status (1-2 sentences)\n   - Key findings and implications\n\n2. GENETIC VARIANT OVERVIEW:\n   - Number of significant variants found\n   - Types of variants identified\n\n3. KEY FINDINGS:\n   - 3-4 most important genomic findings\n   - Health implications of each\n\n4. RISK ASSESSMENT:\n   - Disease risks based on genome\n   - Protective factors identified\n\n5. ACTION ITEMS:\n   - 2-3 specific recommendations\n   - Follow-up testing suggestions\n\n6. LAYMAN'S EXPLANATION:\n   - What whole genome sequencing means in simple terms\n   - Why these results matter for health\n\nKeep the summary accessible to someone without scientific background. Use clear, non-technical language where possible.",
+        "parameters": {
+          "max_tokens": 500,
+          "temperature": 0.2
+        }
+      }
+    },
+    "recommendation": {
+      "name": "WholeGenomeRecommendationAgent",
+      "description": "Personalized recommendations based on whole genome analysis",
+      "prompt": {
+        "system": "You are a genomic specialist providing evidence-based, personalized recommendations for genomic health optimization.",
+        "user_template": "Provide personalized recommendations for user {user_id} based on whole genome analysis:\n\nWHOLE GENOME DATA:\n{whole_genome_data}\n\nUSER CONTEXT:\n{user_context}\n\nGenerate comprehensive, actionable recommendations:\n\n1. CLINICAL MONITORING:\n   - Disease-specific screening recommendations\n   - Frequency of monitoring based on genetic risks\n   - Specific tests and biomarkers\n   - Specialist referrals\n\n2. PREVENTIVE MEASURES:\n   - Lifestyle modifications for genetic risks\n   - Preventive interventions and strategies\n   - Risk reduction approaches\n   - Early detection protocols\n\n3. PHARMACOGENOMIC GUIDANCE:\n   - Medication optimization based on genome\n   - Drug selection and dosing recommendations\n   - Alternative treatment options\n   - Drug interaction considerations\n\n4. FAMILY PLANNING:\n   - Reproductive risk assessment\n   - Family member testing recommendations\n   - Genetic counseling referrals\n   - Reproductive options and considerations\n\n5. LIFESTYLE INTERVENTIONS:\n   - Exercise recommendations for genetic risks\n   - Dietary modifications based on genetics\n   - Environmental factor management\n   - Stress management strategies\n\n6. MONITORING AND FOLLOW-UP:\n   - Recommended follow-up testing\n   - Timeline for reassessment\n   - Progress tracking methods\n   - Key metrics to monitor\n\n7. CLINICAL CONSIDERATIONS:\n   - Integration with existing treatments\n   - Medical monitoring recommendations\n   - Emergency preparedness\n   - Healthcare provider communication\n\nMake recommendations specific to this user's genomic profile, age, and health status. Include evidence-based rationale for each recommendation.",
+        "parameters": {
+          "max_tokens": 700,
+          "temperature": 0.3
+        }
+      }
+    }
+  },
+  "common_prompts": {
+    "explain_term": {
+      "description": "Explain whole genome-specific terms",
+      "prompt": "Explain the genomic term '{term}' in simple language. Include what it measures, why it matters for health, and what it means for disease risk or ancestry. Focus on practical implications for the user."
+    },
+    "compare_population": {
+      "description": "Compare whole genome data to population",
+      "prompt": "Compare user {user_id}'s genomic data to population baselines. Include variant frequency, disease risk comparisons, ancestry analysis, and health implications. Explain what being above/below average means for their health."
+    }
+  }
+} 

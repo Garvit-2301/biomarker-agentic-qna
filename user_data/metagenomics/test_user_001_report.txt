@@ -1,0 +1,24 @@
+GUT MICROBIOME ANALYSIS REPORT - User: test_user_001
+Date: 2024-01-15
+
+Microbiome Diversity:
+- Shannon Diversity Index: 3.8 (Good)
+- Simpson Diversity: 0.85 (Good)
+- Chao1 Richness: 245 species
+
+Key Species Abundance:
+- Bifidobacterium: 12.5% (Normal)
+- Lactobacillus: 8.3% (Normal)
+- Akkermansia muciniphila: 2.1% (Low)
+- Faecalibacterium prausnitzii: 15.2% (Good)
+- Bacteroides: 18.7% (Normal)
+
+Dysbiosis Indicators:
+- Slight reduction in beneficial bacteria
+- Normal pathogen levels
+- Good short-chain fatty acid producers
+
+Recommendations:
+- Increase fiber intake
+- Consider prebiotic supplementation
+- Maintain regular exercise routine 

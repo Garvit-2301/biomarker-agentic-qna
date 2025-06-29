@@ -1,0 +1,52 @@
+{
+  "domain": "whole_exome",
+  "description": "Whole exome sequencing and genetic variant analysis prompts",
+  "agents": {
+    "analysis": {
+      "name": "WholeExomeAnalysisAgent",
+      "description": "Comprehensive genetic variant analysis and interpretation",
+      "prompt": {
+        "system": "You are a genetic specialist with expertise in whole exome sequencing, variant interpretation, and clinical genetics.",
+        "user_template": "Analyze the whole exome sequencing data for user {user_id}:\n\nWHOLE EXOME DATA:\n{whole_exome_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a comprehensive analysis including:\n\n1. VARIANT INTERPRETATION:\n   - Pathogenic variant analysis and clinical significance\n   - VUS interpretation and monitoring recommendations\n   - Benign variant identification and filtering\n   - Novel variant assessment\n\n2. GENE FUNCTION ANALYSIS:\n   - Key genes and their biological functions\n   - Pathway implications and network analysis\n   - Protein function impact assessment\n   - Regulatory element effects\n\n3. DISEASE RISK ASSESSMENT:\n   - Monogenic disease risks and inheritance patterns\n   - Complex disease predispositions\n   - Carrier status implications\n   - Penetrance and expressivity considerations\n\n4. PHARMACOGENOMICS:\n   - Drug metabolism variants and implications\n   - Medication response predictions\n   - Personalized medicine opportunities\n   - Drug interaction considerations\n\n5. FAMILY IMPLICATIONS:\n   - Inheritance patterns and family risk\n   - Family member testing recommendations\n   - Reproductive planning considerations\n   - Genetic counseling needs\n\n6. CLINICAL CORRELATIONS:\n   - Phenotype-genotype correlations\n   - Clinical presentation explanations\n   - Differential diagnosis considerations\n   - Prognostic implications\n\n7. CLINICAL RECOMMENDATIONS:\n   - Follow-up testing suggestions\n   - Specialist referrals\n   - Monitoring protocols\n   - Preventive measures\n\nFocus on actionable insights and explain what the genetic data means for the user's health and medical care.",
+        "parameters": {
+          "max_tokens": 800,
+          "temperature": 0.3
+        }
+      }
+    },
+    "summary": {
+      "name": "WholeExomeSummaryAgent",
+      "description": "Concise summary of genetic findings and key insights",
+      "prompt": {
+        "system": "You are a genetic specialist creating clear, concise summaries of complex genetic data for patients.",
+        "user_template": "Create a patient-friendly summary of whole exome results for user {user_id}:\n\nWHOLE EXOME DATA:\n{whole_exome_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a clear, concise summary including:\n\n1. EXECUTIVE SUMMARY:\n   - Overall genetic health status (1-2 sentences)\n   - Key findings and implications\n\n2. VARIANT OVERVIEW:\n   - Number of significant variants found\n   - Types of variants identified\n\n3. KEY FINDINGS:\n   - 3-4 most important genetic findings\n   - Health implications of each\n\n4. RISK ASSESSMENT:\n   - Disease risks based on genetics\n   - Protective factors identified\n\n5. ACTION ITEMS:\n   - 2-3 specific recommendations\n   - Follow-up testing suggestions\n\n6. LAYMAN'S EXPLANATION:\n   - What genetic variants mean in simple terms\n   - Why these results matter for health\n\nKeep the summary accessible to someone without scientific background. Use clear, non-technical language where possible.",
+        "parameters": {
+          "max_tokens": 500,
+          "temperature": 0.2
+        }
+      }
+    },
+    "recommendation": {
+      "name": "WholeExomeRecommendationAgent",
+      "description": "Personalized recommendations based on genetic analysis",
+      "prompt": {
+        "system": "You are a genetic specialist providing evidence-based, personalized recommendations for genetic health optimization.",
+        "user_template": "Provide personalized recommendations for user {user_id} based on whole exome analysis:\n\nWHOLE EXOME DATA:\n{whole_exome_data}\n\nUSER CONTEXT:\n{user_context}\n\nGenerate comprehensive, actionable recommendations:\n\n1. CLINICAL MONITORING:\n   - Disease-specific screening recommendations\n   - Frequency of monitoring\n   - Specific tests and biomarkers\n   - Specialist referrals\n\n2. PREVENTIVE MEASURES:\n   - Lifestyle modifications for genetic risks\n   - Preventive interventions\n   - Risk reduction strategies\n   - Early detection protocols\n\n3. PHARMACOGENOMIC GUIDANCE:\n   - Medication optimization based on genetics\n   - Drug selection recommendations\n   - Dosage adjustments\n   - Alternative treatment options\n\n4. FAMILY PLANNING:\n   - Reproductive risk assessment\n   - Family member testing recommendations\n   - Genetic counseling referrals\n   - Reproductive options\n\n5. LIFESTYLE INTERVENTIONS:\n   - Exercise recommendations for genetic risks\n   - Dietary modifications\n   - Environmental factor management\n   - Stress management strategies\n\n6. MONITORING AND FOLLOW-UP:\n   - Recommended follow-up testing\n   - Timeline for reassessment\n   - Progress tracking methods\n   - Key metrics to monitor\n\n7. CLINICAL CONSIDERATIONS:\n   - Integration with existing treatments\n   - Medical monitoring recommendations\n   - Emergency preparedness\n   - Healthcare provider communication\n\nMake recommendations specific to this user's genetic profile, age, and health status. Include evidence-based rationale for each recommendation.",
+        "parameters": {
+          "max_tokens": 700,
+          "temperature": 0.3
+        }
+      }
+    }
+  },
+  "common_prompts": {
+    "explain_term": {
+      "description": "Explain whole exome-specific terms",
+      "prompt": "Explain the genetic term '{term}' in simple language. Include what it measures, why it matters for health, and what it means for disease risk. Focus on practical implications for the user."
+    },
+    "compare_population": {
+      "description": "Compare genetic data to population",
+      "prompt": "Compare user {user_id}'s genetic data to population baselines. Include variant frequency, disease risk comparisons, and health implications. Explain what being above/below average means for their health."
+    }
+  }
+} 

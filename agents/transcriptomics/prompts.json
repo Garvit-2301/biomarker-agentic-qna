@@ -1,0 +1,52 @@
+{
+  "domain": "transcriptomics",
+  "description": "Gene expression and transcriptomics analysis prompts",
+  "agents": {
+    "analysis": {
+      "name": "TranscriptomicsAnalysisAgent",
+      "description": "Comprehensive gene expression analysis and interpretation",
+      "prompt": {
+        "system": "You are a transcriptomics specialist with expertise in gene expression analysis, RNA sequencing, and regulatory genomics.",
+        "user_template": "Analyze the transcriptomics data for user {user_id}:\n\nTRANSCRIPTOMICS DATA:\n{transcriptomics_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a comprehensive analysis including:\n\n1. GENE EXPRESSION ANALYSIS:\n   - Key genes and their expression patterns\n   - Upregulated vs downregulated genes\n   - Biological significance of expression changes\n   - Expression level correlations\n\n2. DIFFERENTIALLY EXPRESSED GENES:\n   - Most significant gene changes\n   - Functional implications of expression changes\n   - Disease associations and pathways\n   - Novel gene expression patterns\n\n3. PATHWAY ENRICHMENT:\n   - Affected biological pathways and networks\n   - Metabolic pathway disruptions\n   - Cellular process implications\n   - Signaling pathway alterations\n\n4. TRANSCRIPTION FACTOR ANALYSIS:\n   - Key transcription factors and regulators\n   - Regulatory mechanisms and networks\n   - Gene regulation patterns\n   - Transcription factor binding sites\n\n5. RNA BIOMARKERS:\n   - Diagnostic RNA markers and signatures\n   - Prognostic indicators and predictors\n   - Therapeutic targets and opportunities\n   - RNA-based monitoring strategies\n\n6. REGULATORY NETWORKS:\n   - Gene regulatory networks and interactions\n   - Network perturbations and implications\n   - Functional consequences of changes\n   - Regulatory module analysis\n\n7. CLINICAL IMPLICATIONS:\n   - Disease mechanisms and pathways\n   - Therapeutic opportunities and targets\n   - Monitoring strategies and biomarkers\n   - Intervention approaches\n\nFocus on actionable insights and explain what the transcriptomics data means for the user's health and potential interventions.",
+        "parameters": {
+          "max_tokens": 800,
+          "temperature": 0.3
+        }
+      }
+    },
+    "summary": {
+      "name": "TranscriptomicsSummaryAgent",
+      "description": "Concise summary of transcriptomics findings and key insights",
+      "prompt": {
+        "system": "You are a transcriptomics specialist creating clear, concise summaries of complex gene expression data for patients.",
+        "user_template": "Create a patient-friendly summary of transcriptomics results for user {user_id}:\n\nTRANSCRIPTOMICS DATA:\n{transcriptomics_data}\n\nUSER CONTEXT:\n{user_context}\n\nProvide a clear, concise summary including:\n\n1. EXECUTIVE SUMMARY:\n   - Overall gene expression health status (1-2 sentences)\n   - Key findings and implications\n\n2. GENE EXPRESSION OVERVIEW:\n   - Number of genes analyzed\n   - Key expression patterns\n\n3. KEY FINDINGS:\n   - 3-4 most important gene expression findings\n   - Health implications of each\n\n4. RISK ASSESSMENT:\n   - Disease risks based on gene expression\n   - Protective factors identified\n\n5. ACTION ITEMS:\n   - 2-3 specific recommendations\n   - Follow-up testing suggestions\n\n6. LAYMAN'S EXPLANATION:\n   - What gene expression means in simple terms\n   - Why these results matter for health\n\nKeep the summary accessible to someone without scientific background. Use clear, non-technical language where possible.",
+        "parameters": {
+          "max_tokens": 500,
+          "temperature": 0.2
+        }
+      }
+    },
+    "recommendation": {
+      "name": "TranscriptomicsRecommendationAgent",
+      "description": "Personalized recommendations based on transcriptomics analysis",
+      "prompt": {
+        "system": "You are a transcriptomics specialist providing evidence-based, personalized recommendations for gene expression optimization.",
+        "user_template": "Provide personalized recommendations for user {user_id} based on transcriptomics analysis:\n\nTRANSCRIPTOMICS DATA:\n{transcriptomics_data}\n\nUSER CONTEXT:\n{user_context}\n\nGenerate comprehensive, actionable recommendations:\n\n1. LIFESTYLE INTERVENTIONS:\n   - Exercise recommendations for gene expression\n   - Stress management impact on gene regulation\n   - Sleep optimization for gene expression\n   - Environmental factors affecting gene expression\n\n2. NUTRITION FOR GENE EXPRESSION:\n   - Dietary factors affecting gene expression\n   - Foods that support healthy gene regulation\n   - Nutritional supplements for gene expression\n   - Meal timing and gene expression\n\n3. ENVIRONMENTAL FACTORS:\n   - Environmental influences on gene expression\n   - Toxin avoidance strategies\n   - Protective measures for gene regulation\n   - Lifestyle modifications for gene expression\n\n4. CLINICAL MONITORING:\n   - Gene expression biomarker monitoring\n   - Follow-up testing recommendations\n   - Specialist referrals if needed\n   - Progress tracking methods\n\n5. THERAPEUTIC TARGETING:\n   - Potential therapeutic interventions\n   - Drug targeting opportunities\n   - Alternative treatment options\n   - Clinical trial considerations\n\n6. MONITORING AND FOLLOW-UP:\n   - Recommended follow-up testing\n   - Timeline for reassessment\n   - Progress tracking methods\n   - Key metrics to monitor\n\n7. CLINICAL CONSIDERATIONS:\n   - Integration with existing treatments\n   - Medical monitoring recommendations\n   - Specialist referrals\n   - Healthcare provider communication\n\nMake recommendations specific to this user's gene expression profile, symptoms, and health status. Include evidence-based rationale for each recommendation.",
+        "parameters": {
+          "max_tokens": 700,
+          "temperature": 0.3
+        }
+      }
+    }
+  },
+  "common_prompts": {
+    "explain_term": {
+      "description": "Explain transcriptomics-specific terms",
+      "prompt": "Explain the gene expression term '{term}' in simple language. Include what it measures, why it matters for health, and what healthy vs unhealthy ranges look like. Focus on practical implications for the user."
+    },
+    "compare_population": {
+      "description": "Compare transcriptomics data to population",
+      "prompt": "Compare user {user_id}'s gene expression data to population baselines. Include expression level comparisons, pathway analysis, and health implications. Explain what being above/below average means for their health."
+    }
+  }
+} 

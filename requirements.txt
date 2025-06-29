@@ -1,0 +1,11 @@
+# Core dependencies
+# Note: This is a minimal requirements file since the system uses mock clients
+# Add actual LLM client dependencies when switching to production
+
+# Standard library dependencies (usually included with Python)
+# No external dependencies required for the mock testing system
+
+# Optional: For enhanced functionality
+# openai>=1.0.0  # Uncomment when using OpenAI clients
+# requests>=2.25.0  # Uncomment when using HTTP clients
+# python-dotenv>=0.19.0  # Uncomment when using environment variables 

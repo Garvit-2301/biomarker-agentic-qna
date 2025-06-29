@@ -1,0 +1,32 @@
+WHOLE GENOME ANALYSIS REPORT - User: test_user_001
+Date: 2024-01-15
+
+Genomic Analysis:
+- Total variants: 4.2 million
+- Rare variants: 2,847
+- Structural variations: 156
+- Copy number variations: 23
+
+Key Findings:
+- No significant structural variations
+- Normal copy number profile
+- Good genomic stability
+- Population-appropriate diversity
+
+Regulatory Elements:
+- Enhancers: 45,234 identified
+- Promoters: 23,456 active
+- Insulators: 12,345 mapped
+- Non-coding RNAs: 8,234 expressed
+
+Population Genetics:
+- Ancestry: Mixed European/Asian
+- Population-specific variants: 234
+- Common variants: 3.8 million
+- Rare variants: 2,847
+
+Comprehensive Assessment:
+- Overall genomic health: Good
+- No significant genetic risks
+- Normal population diversity
+- Stable genomic structure 

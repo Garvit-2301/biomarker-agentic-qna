@@ -1,0 +1,38 @@
+{
+  "user_id": "user_007",
+  "report_date": "2024-01-21",
+  "similarity_score": 0.134,
+  "health_score": 0.201,
+  "underrepresented_species": ["Roseburia intestinalis"],
+  "microbiome_composition": {
+    "firmicutes": 0.50,
+    "bacteroidetes": 0.30,
+    "actinobacteria": 0.13,
+    "proteobacteria": 0.07
+  },
+  "diversity_scores": {
+    "shannon_diversity": 3.8,
+    "species_richness": 170
+  },
+  "functional_markers": {
+    "scfa_levels": {
+      "butyrate": 3.1,
+      "propionate": 2.2,
+      "acetate": 4.7
+    },
+    "inflammation_markers": {
+      "calprotectin": 28,
+      "crp": 1.5
+    }
+  },
+  "symptoms": {
+    "bloating": "mild",
+    "energy_levels": "moderate",
+    "bowel_movements": "regular"
+  },
+  "diet": {
+    "current_diet": "balanced",
+    "fiber_intake": "moderate",
+    "probiotic_foods": ["yogurt", "pickles"]
+  }
+} 

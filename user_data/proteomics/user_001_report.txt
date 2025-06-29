@@ -1,0 +1,92 @@
+{
+  "user_id": "user_001",
+  "report_date": "2024-01-15",
+  "domain": "proteomics",
+  "protein_expression": {
+    "total_proteins_detected": 2500,
+    "upregulated_proteins": 180,
+    "downregulated_proteins": 95,
+    "key_proteins": {
+      "insulin": {"expression": 1.8, "status": "upregulated"},
+      "leptin": {"expression": 2.1, "status": "upregulated"},
+      "adiponectin": {"expression": 0.6, "status": "downregulated"},
+      "c_reactive_protein": {"expression": 2.5, "status": "upregulated"},
+      "interleukin_6": {"expression": 1.9, "status": "upregulated"}
+    }
+  },
+  "biomarker_levels": {
+    "inflammatory_markers": {
+      "crp": 4.2,
+      "il6": 3.8,
+      "tnf_alpha": 2.1,
+      "ferritin": 180
+    },
+    "metabolic_markers": {
+      "insulin": 15.2,
+      "leptin": 25.6,
+      "adiponectin": 8.4,
+      "ghrelin": 12.8
+    },
+    "cardiovascular_markers": {
+      "troponin": 0.02,
+      "bnp": 45,
+      "myoglobin": 85
+    }
+  },
+  "protein_pathways": {
+    "inflammation_pathway": {
+      "status": "activated",
+      "key_proteins": ["IL6", "TNF", "CRP", "IL1B"],
+      "pathway_score": 2.1
+    },
+    "insulin_signaling": {
+      "status": "dysregulated",
+      "key_proteins": ["INSR", "IRS1", "AKT", "GLUT4"],
+      "pathway_score": 0.7
+    },
+    "lipid_metabolism": {
+      "status": "normal",
+      "key_proteins": ["LDLR", "APOB", "APOA1", "CETP"],
+      "pathway_score": 1.1
+    }
+  },
+  "ptm": {
+    "phosphorylation": {
+      "total_phosphorylated": 450,
+      "key_sites": {
+        "AKT_S473": "phosphorylated",
+        "ERK_T202": "phosphorylated",
+        "JNK_T183": "phosphorylated"
+      }
+    },
+    "glycosylation": {
+      "total_glycosylated": 320,
+      "key_sites": {
+        "IGF1R": "glycosylated",
+        "EGFR": "glycosylated"
+      }
+    }
+  },
+  "protein_interactions": {
+    "insulin_receptor_complex": ["INSR", "IRS1", "PI3K", "AKT"],
+    "inflammation_complex": ["IL6", "IL6R", "JAK2", "STAT3"],
+    "metabolic_complex": ["PPAR", "RXR", "PGC1A"]
+  },
+  "disease_associations": {
+    "diabetes": {
+      "risk_score": 0.75,
+      "key_proteins": ["insulin", "leptin", "adiponectin"],
+      "pathway_perturbation": "high"
+    },
+    "cardiovascular_disease": {
+      "risk_score": 0.68,
+      "key_proteins": ["crp", "il6", "troponin"],
+      "pathway_perturbation": "moderate"
+    },
+    "inflammation": {
+      "risk_score": 0.82,
+      "key_proteins": ["crp", "il6", "tnf_alpha"],
+      "pathway_perturbation": "high"
+    }
+  }
+} 

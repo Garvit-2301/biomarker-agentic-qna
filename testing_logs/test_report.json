@@ -1,0 +1,211 @@
+{
+  "test_timestamp": "2025-06-30T03:08:03.229690",
+  "summary": {
+    "total_tests": 54,
+    "total_passed": 54,
+    "total_failed": 0,
+    "success_rate": 100.0
+  },
+  "detailed_results": {
+    "prompt_loading": {
+      "passed": 33,
+      "failed": 0,
+      "details": {
+        "common": {
+          "passed": 3,
+          "failed": 0,
+          "errors": []
+        },
+        "transcriptomics": {
+          "passed": 5,
+          "failed": 0,
+          "errors": []
+        },
+        "methylation": {
+          "passed": 5,
+          "failed": 0,
+          "errors": []
+        },
+        "whole_genome": {
+          "passed": 5,
+          "failed": 0,
+          "errors": []
+        },
+        "proteomics": {
+          "passed": 5,
+          "failed": 0,
+          "errors": []
+        },
+        "whole_exome": {
+          "passed": 5,
+          "failed": 0,
+          "errors": []
+        },
+        "metagenomics": {
+          "passed": 5,
+          "failed": 0,
+          "errors": []
+        }
+      }
+    },
+    "demo_agents": {
+      "passed": 18,
+      "failed": 0,
+      "details": {
+        "transcriptomics": {
+          "passed": 3,
+          "failed": 0,
+          "errors": [],
+          "agents": {
+            "analysis": {
+              "processing_time": 0.414257,
+              "response_length": 59,
+              "prompt_length": 2246
+            },
+            "summary": {
+              "processing_time": 0.293615,
+              "response_length": 273,
+              "prompt_length": 1558
+            },
+            "recommendation": {
+              "processing_time": 0.316245,
+              "response_length": 328,
+              "prompt_length": 2324
+            }
+          }
+        },
+        "methylation": {
+          "passed": 3,
+          "failed": 0,
+          "errors": [],
+          "agents": {
+            "analysis": {
+              "processing_time": 0.223914,
+              "response_length": 422,
+              "prompt_length": 1981
+            },
+            "summary": {
+              "processing_time": 0.297514,
+              "response_length": 273,
+              "prompt_length": 1453
+            },
+            "recommendation": {
+              "processing_time": 0.44501,
+              "response_length": 328,
+              "prompt_length": 1989
+            }
+          }
+        },
+        "whole_genome": {
+          "passed": 3,
+          "failed": 0,
+          "errors": [],
+          "agents": {
+            "analysis": {
+              "processing_time": 0.204436,
+              "response_length": 56,
+              "prompt_length": 2472
+            },
+            "summary": {
+              "processing_time": 0.289929,
+              "response_length": 273,
+              "prompt_length": 1710
+            },
+            "recommendation": {
+              "processing_time": 0.171979,
+              "response_length": 328,
+              "prompt_length": 2406
+            }
+          }
+        },
+        "proteomics": {
+          "passed": 3,
+          "failed": 0,
+          "errors": [],
+          "agents": {
+            "analysis": {
+              "processing_time": 0.479358,
+              "response_length": 54,
+              "prompt_length": 2305
+            },
+            "summary": {
+              "processing_time": 0.362629,
+              "response_length": 273,
+              "prompt_length": 1565
+            },
+            "recommendation": {
+              "processing_time": 0.341208,
+              "response_length": 328,
+              "prompt_length": 2317
+            }
+          }
+        },
+        "whole_exome": {
+          "passed": 3,
+          "failed": 0,
+          "errors": [],
+          "agents": {
+            "analysis": {
+              "processing_time": 0.143138,
+              "response_length": 55,
+              "prompt_length": 2251
+            },
+            "summary": {
+              "processing_time": 0.372317,
+              "response_length": 273,
+              "prompt_length": 1574
+            },
+            "recommendation": {
+              "processing_time": 0.318387,
+              "response_length": 328,
+              "prompt_length": 2187
+            }
+          }
+        },
+        "metagenomics": {
+          "passed": 3,
+          "failed": 0,
+          "errors": [],
+          "agents": {
+            "analysis": {
+              "processing_time": 0.203932,
+              "response_length": 377,
+              "prompt_length": 2162
+            },
+            "summary": {
+              "processing_time": 0.143935,
+              "response_length": 273,
+              "prompt_length": 1564
+            },
+            "recommendation": {
+              "processing_time": 0.265246,
+              "response_length": 328,
+              "prompt_length": 2125
+            }
+          }
+        }
+      }
+    },
+    "end_to_end_workflow": {
+      "passed": 3,
+      "failed": 0,
+      "workflow_steps": [
+        {
+          "step": "analysis",
+          "success": true,
+          "processing_time": 0.19558
+        },
+        {
+          "step": "summary",
+          "success": true,
+          "processing_time": 0.492605
+        },
+        {
+          "step": "recommendation",
+          "success": true,
+          "processing_time": 0.26207
+        }
+      ]
+    }
+  }
+}

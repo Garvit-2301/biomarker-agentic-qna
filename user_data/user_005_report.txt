@@ -1,0 +1,38 @@
+{
+  "user_id": "user_005",
+  "report_date": "2024-01-19",
+  "similarity_score": 0.089,
+  "health_score": 0.267,
+  "underrepresented_species": [],
+  "microbiome_composition": {
+    "firmicutes": 0.55,
+    "bacteroidetes": 0.25,
+    "actinobacteria": 0.15,
+    "proteobacteria": 0.05
+  },
+  "diversity_scores": {
+    "shannon_diversity": 4.3,
+    "species_richness": 195
+  },
+  "functional_markers": {
+    "scfa_levels": {
+      "butyrate": 4.2,
+      "propionate": 2.8,
+      "acetate": 5.8
+    },
+    "inflammation_markers": {
+      "calprotectin": 18,
+      "crp": 0.9
+    }
+  },
+  "symptoms": {
+    "bloating": "none",
+    "energy_levels": "very_high",
+    "bowel_movements": "excellent"
+  },
+  "diet": {
+    "current_diet": "whole_foods",
+    "fiber_intake": "very_high",
+    "probiotic_foods": ["kefir", "sauerkraut", "miso", "kombucha"]
+  }
+} 

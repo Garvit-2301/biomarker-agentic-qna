@@ -1,0 +1,65 @@
+{
+  "user_id": "user_001",
+  "report_date": "2024-01-15",
+  "domain": "whole_exome",
+  "variant_count": 12500,
+  "pathogenic_variants": [
+    {
+      "gene": "BRCA2",
+      "variant": "c.5946delT",
+      "chromosome": "13",
+      "position": 32316467,
+      "consequence": "frameshift",
+      "pathogenicity": "pathogenic",
+      "disease_association": "breast_cancer",
+      "inheritance": "autosomal_dominant"
+    }
+  ],
+  "vus_variants": [
+    {
+      "gene": "APC",
+      "variant": "c.3920T>A",
+      "chromosome": "5",
+      "position": 112175196,
+      "consequence": "missense",
+      "pathogenicity": "uncertain",
+      "disease_association": "colorectal_cancer",
+      "inheritance": "autosomal_dominant"
+    }
+  ],
+  "gene_annotations": {
+    "total_genes": 20000,
+    "disease_genes": 150,
+    "pharmacogenomic_genes": 25,
+    "key_pathways": {
+      "dna_repair": ["BRCA1", "BRCA2", "ATM", "CHEK2"],
+      "metabolism": ["MTHFR", "COMT", "CYP2D6", "CYP2C19"],
+      "immune_response": ["HLA-A", "HLA-B", "HLA-C", "IL6"]
+    }
+  },
+  "disease_risk": {
+    "monogenic_diseases": {
+      "breast_cancer": "high",
+      "colorectal_cancer": "moderate",
+      "cardiovascular_disease": "moderate"
+    },
+    "complex_diseases": {
+      "diabetes_type_2": "moderate",
+      "hypertension": "high",
+      "alzheimer_disease": "low"
+    }
+  },
+  "pharmacogenomics": {
+    "drug_metabolism": {
+      "warfarin": "sensitive",
+      "clopidogrel": "intermediate",
+      "simvastatin": "normal",
+      "metformin": "normal"
+    },
+    "drug_response": {
+      "codeine": "ultra_rapid_metabolizer",
+      "tamoxifen": "normal",
+      "carbamazepine": "normal"
+    }
+  }
+} 

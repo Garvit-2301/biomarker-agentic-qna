@@ -1,0 +1,38 @@
+{
+  "user_id": "user_002",
+  "report_date": "2024-01-16",
+  "similarity_score": 0.087,
+  "health_score": 0.234,
+  "underrepresented_species": ["Lactobacillus rhamnosus"],
+  "microbiome_composition": {
+    "firmicutes": 0.52,
+    "bacteroidetes": 0.28,
+    "actinobacteria": 0.12,
+    "proteobacteria": 0.08
+  },
+  "diversity_scores": {
+    "shannon_diversity": 4.1,
+    "species_richness": 180
+  },
+  "functional_markers": {
+    "scfa_levels": {
+      "butyrate": 3.8,
+      "propionate": 2.5,
+      "acetate": 5.1
+    },
+    "inflammation_markers": {
+      "calprotectin": 25,
+      "crp": 1.2
+    }
+  },
+  "symptoms": {
+    "bloating": "mild",
+    "energy_levels": "high",
+    "bowel_movements": "regular"
+  },
+  "diet": {
+    "current_diet": "plant-based",
+    "fiber_intake": "high",
+    "probiotic_foods": ["sauerkraut", "kimchi", "tempeh"]
+  }
+} 

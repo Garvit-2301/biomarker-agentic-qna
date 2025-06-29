@@ -1,0 +1,20 @@
+METHYLATION ANALYSIS REPORT - User: test_user_001
+Date: 2024-01-15
+
+Methylation Profile:
+- MTHFR C677T: Heterozygous (CT)
+- COMT V158M: Homozygous (GG)
+- BDNF Val66Met: Heterozygous (AG)
+- MAO-A: Normal methylation pattern
+- DNMT1: Slightly elevated methylation
+
+Key Findings:
+- Moderate methylation efficiency
+- Normal folate metabolism
+- Slightly elevated stress response methylation
+- Good detoxification methylation patterns
+
+Recommendations:
+- Consider B-vitamin supplementation
+- Monitor stress levels
+- Maintain healthy lifestyle habits 

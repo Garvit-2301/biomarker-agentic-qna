@@ -1,0 +1,38 @@
+{
+  "user_id": "user_009",
+  "report_date": "2024-01-23",
+  "similarity_score": 0.245,
+  "health_score": 0.092,
+  "underrepresented_species": ["Bifidobacterium bifidum", "Lactobacillus plantarum"],
+  "microbiome_composition": {
+    "firmicutes": 0.40,
+    "bacteroidetes": 0.40,
+    "actinobacteria": 0.11,
+    "proteobacteria": 0.09
+  },
+  "diversity_scores": {
+    "shannon_diversity": 2.9,
+    "species_richness": 125
+  },
+  "functional_markers": {
+    "scfa_levels": {
+      "butyrate": 1.5,
+      "propionate": 1.4,
+      "acetate": 3.3
+    },
+    "inflammation_markers": {
+      "calprotectin": 68,
+      "crp": 3.5
+    }
+  },
+  "symptoms": {
+    "bloating": "moderate",
+    "energy_levels": "low",
+    "bowel_movements": "irregular"
+  },
+  "diet": {
+    "current_diet": "fast_food",
+    "fiber_intake": "very_low",
+    "probiotic_foods": []
+  }
+} 
