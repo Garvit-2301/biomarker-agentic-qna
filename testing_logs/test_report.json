@@ -1,5 +1,5 @@
 {
-  "test_timestamp": "2025-06-30T03:27:18.529483",
+  "test_timestamp": "2025-07-02T10:21:21.766827",
   "summary": {
     "total_tests": 54,
     "total_passed": 54,
@@ -16,7 +16,7 @@
           "failed": 0,
           "errors": []
         },
-        "transcriptomics": {
+        "metagenomics": {
           "passed": 5,
           "failed": 0,
           "errors": []
@@ -26,12 +26,12 @@
           "failed": 0,
           "errors": []
         },
-        "whole_genome": {
+        "proteomics": {
           "passed": 5,
           "failed": 0,
           "errors": []
         },
-        "proteomics": {
+        "transcriptomics": {
           "passed": 5,
           "failed": 0,
           "errors": []
@@ -41,7 +41,7 @@
           "failed": 0,
           "errors": []
         },
-        "metagenomics": {
+        "whole_genome": {
           "passed": 5,
           "failed": 0,
           "errors": []
@@ -52,25 +52,25 @@
       "passed": 18,
       "failed": 0,
       "details": {
-        "transcriptomics": {
+        "metagenomics": {
           "passed": 3,
           "failed": 0,
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.222215,
-              "response_length": 59,
-              "prompt_length": 2246
+              "processing_time": 0.369192,
+              "response_length": 377,
+              "prompt_length": 2162
             },
             "summary": {
-              "processing_time": 0.342499,
+              "processing_time": 0.374206,
               "response_length": 273,
-              "prompt_length": 1558
+              "prompt_length": 1564
             },
             "recommendation": {
-              "processing_time": 0.166748,
+              "processing_time": 0.504189,
               "response_length": 328,
-              "prompt_length": 2324
+              "prompt_length": 2125
             }
           }
         },
@@ -80,41 +80,19 @@
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.456472,
-              "response_length": 422,
+              "processing_time": 0.162131,
+              "response_length": 417,
               "prompt_length": 1981
             },
             "summary": {
-              "processing_time": 0.148696,
+              "processing_time": 0.408591,
               "response_length": 273,
               "prompt_length": 1453
             },
             "recommendation": {
-              "processing_time": 0.46788,
+              "processing_time": 0.107702,
               "response_length": 328,
               "prompt_length": 1989
-            }
-          }
-        },
-        "whole_genome": {
-          "passed": 3,
-          "failed": 0,
-          "errors": [],
-          "agents": {
-            "analysis": {
-              "processing_time": 0.2141,
-              "response_length": 56,
-              "prompt_length": 2472
-            },
-            "summary": {
-              "processing_time": 0.189291,
-              "response_length": 273,
-              "prompt_length": 1710
-            },
-            "recommendation": {
-              "processing_time": 0.272519,
-              "response_length": 328,
-              "prompt_length": 2406
             }
           }
         },
@@ -124,19 +102,41 @@
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.310683,
+              "processing_time": 0.453944,
               "response_length": 54,
-              "prompt_length": 2305
+              "prompt_length": 2306
             },
             "summary": {
-              "processing_time": 0.189845,
+              "processing_time": 0.212342,
               "response_length": 273,
-              "prompt_length": 1565
+              "prompt_length": 1566
             },
             "recommendation": {
-              "processing_time": 0.455926,
+              "processing_time": 0.377167,
               "response_length": 328,
-              "prompt_length": 2317
+              "prompt_length": 2318
+            }
+          }
+        },
+        "transcriptomics": {
+          "passed": 3,
+          "failed": 0,
+          "errors": [],
+          "agents": {
+            "analysis": {
+              "processing_time": 0.243654,
+              "response_length": 59,
+              "prompt_length": 2246
+            },
+            "summary": {
+              "processing_time": 0.191416,
+              "response_length": 273,
+              "prompt_length": 1558
+            },
+            "recommendation": {
+              "processing_time": 0.222471,
+              "response_length": 328,
+              "prompt_length": 2324
             }
           }
         },
@@ -146,41 +146,41 @@
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.300536,
+              "processing_time": 0.246397,
               "response_length": 55,
               "prompt_length": 2251
             },
             "summary": {
-              "processing_time": 0.336085,
+              "processing_time": 0.356456,
               "response_length": 273,
               "prompt_length": 1574
             },
             "recommendation": {
-              "processing_time": 0.433689,
+              "processing_time": 0.21505,
               "response_length": 328,
               "prompt_length": 2187
             }
           }
         },
-        "metagenomics": {
+        "whole_genome": {
           "passed": 3,
           "failed": 0,
           "errors": [],
           "agents": {
             "analysis": {
-              "processing_time": 0.452059,
-              "response_length": 377,
-              "prompt_length": 2162
+              "processing_time": 0.185711,
+              "response_length": 56,
+              "prompt_length": 2472
             },
             "summary": {
-              "processing_time": 0.330994,
+              "processing_time": 0.420468,
               "response_length": 273,
-              "prompt_length": 1564
+              "prompt_length": 1710
             },
             "recommendation": {
-              "processing_time": 0.296269,
+              "processing_time": 0.415766,
               "response_length": 328,
-              "prompt_length": 2125
+              "prompt_length": 2406
             }
           }
         }
@@ -193,17 +193,17 @@
         {
           "step": "analysis",
           "success": true,
-          "processing_time": 0.380803
+          "processing_time": 0.420347
         },
         {
           "step": "summary",
           "success": true,
-          "processing_time": 0.108917
+          "processing_time": 0.495341
         },
         {
           "step": "recommendation",
           "success": true,
-          "processing_time": 0.363477
+          "processing_time": 0.271608
         }
       ]
     }
