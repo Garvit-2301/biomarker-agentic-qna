@@ -87,52 +87,28 @@ class MethylationAgent(dspy.Module):
             self.load_data_from_files(json_file_path, report_file_path)
 
     def load_data_from_files(self, json_file_path: str, report_file_path: str):
-        """Load data from file paths with proper error handling"""
-        try:
-            # Check if files exist
-            if not os.path.exists(json_file_path):
-                raise FileNotFoundError(f"JSON file not found: {json_file_path}")
-            if not os.path.exists(report_file_path):
-                raise FileNotFoundError(f"Report file not found: {report_file_path}")
+        """Load data from JSON files"""
+        # Load JSON data
+        with open(json_file_path, 'r', encoding='utf-8') as f:
+            json_data = json.load(f)
 
-            # Load JSON data
-            with open(json_file_path, 'r', encoding='utf-8') as f:
-                json_data = json.load(f)
+        # Load report text - first read the content
+        with open(report_file_path, 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+        
+        # If file is empty or whitespace only, use default text
+        if not content:
+            report_text = "No report data available"
+        else:
+            # Try to parse as JSON, if it fails treat as plain text
+            if content.startswith('{') or content.startswith('['):
+                report_text = json.loads(content)
+            else:
+                report_text = content
 
-            # Load report text - handle both JSON and plain text
-            try:
-                with open(report_file_path, 'r', encoding='utf-8') as f:
-                    content = f.read().strip()
-                    if content:
-                        # Try to parse as JSON first
-                        try:
-                            report_text = json.loads(content)
-                            # If it's a dict, convert to string representation
-                            if isinstance(report_text, dict):
-                                report_text = json.dumps(report_text, indent=2)
-                            elif not isinstance(report_text, str):
-                                report_text = str(report_text)
-                        except json.JSONDecodeError:
-                            # If not JSON, treat as plain text
-                            report_text = content
-                    else:
-                        report_text = "No report text available"
-            except Exception as e:
-                print(f"Warning: Could not read report file {report_file_path}: {e}")
-                report_text = "Report text unavailable"
-
-            # Load the formatted data
-            self.load_data(json_data, report_text)
-            print("Data loaded successfully!")
-            
-        except FileNotFoundError as e:
-            print(f"Error: {e}")
-            print("Please check that the file paths are correct.")
-        except json.JSONDecodeError as e:
-            print(f"JSON Error: Could not parse JSON file {json_file_path}")
-            print(f"Error details: {e}")
-        except Exception as e:
-            print(f"Unexpected error loading data: {e}")
+        # Load the formatted data
+        self.load_data(json_data, report_text)
+        print("Data loaded successfully!")
 
     def load_data(self, json_data: Dict, report_text: str):
         """Load formatted data into the agent"""
